@@ -106,7 +106,7 @@ export default function Trade({ trading, trader_id }) {
                             </div>
 
                             <div className="mt-6 text-center">
-                                <a href={ `tg://openmessage?user_id=${trader_id}`}>
+                                <a href={ `https://T.me/${trader_id}`}>
 
                                     <button
                                         disabled={!allChecked}
