@@ -106,13 +106,15 @@ export default function Trade({ trading, trader_id }) {
                             </div>
 
                             <div className="mt-6 text-center">
-                                <button
-                                    disabled={!allChecked}
-                                    className={`px-6 py-2 rounded-md text-white ${allChecked ? 'bg-blue-500 hover:bg-blue-700' : 'bg-gray-300 cursor-not-allowed'}`}
-                                    onClick={() => window.location.href = `tg://openmessage?user_id=${trader_id}`}
-                                >
-                                    SEND YOUR MEDIA
-                                </button>
+                                <a href={ `tg://openmessage?user_id=${trader_id}`}>
+
+                                    <button
+                                        disabled={!allChecked}
+                                        className={`px-6 py-2 rounded-md text-white ${allChecked ? 'bg-blue-500 hover:bg-blue-700' : 'bg-gray-300 cursor-not-allowed'}`}
+                                    >
+                                        SEND YOUR MEDIA
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
