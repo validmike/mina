@@ -88,6 +88,8 @@ export default function Register() {
                         readOnly={!!inviteCode} // Make it readonly if it's auto-filled
                     />
                     <InputError message={errors.invite} className="mt-2" />
+                    <InputError message={errors.telegram_id} className="mt-4" />
+
                 </div>
 
 
