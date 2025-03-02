@@ -32,11 +32,11 @@ export default function Cashapp() {
                         </div>
                         <div className="flex space-x-4 mb-4">
                             <button onClick={copyToClipboard} className="flex items-center bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg transition">
-                                <FiClipboard className="w-5 h-5 mr-2" /> {copied ? 'Copied!' : 'Copy Link'}
+                                <FiClipboard className="w-5 h-5 mr-2" /> {copied ? 'Copied!' : 'Copy Video Link'}
                             </button>
-                            <a href={videoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition">
+                            {/* <a href={videoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg transition">
                                 <FiExternalLink className="w-5 h-5 mr-2" /> Open youtube
-                            </a>
+                            </a> */}
                         </div>
                         <p className="mb-4">It’s recommended to use <strong>Lightning Bitcoin</strong> as it's faster and has no fees. If it fails, use on-chain Bitcoin instead.</p>
                         <p>Sometimes, users can’t send BTC on CashApp because their account isn’t verified. Don't worry, it's easy, and verification usually takes less than an hour. verify your account and try again</p>

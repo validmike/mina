@@ -39,7 +39,7 @@ const LightningInvoice = ({ id, amountSats, expires_at, amountDollars, address ,
     };
 
     return (
-        <div className="w-full max-w-md mx-auto border rounded-xl shadow-lg overflow-hidden">
+        <div className="w-full h-full max-w-md mx-auto border rounded-xl shadow-lg overflow-hidden">
             {/* Header */}
             <div className="bg-gray-100">
                 {/* Top Section (Nav Bar) */}
