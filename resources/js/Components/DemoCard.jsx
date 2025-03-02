@@ -37,7 +37,7 @@ const DemoCard = ({ url, watermark }) => {
 
             {/* Watermark - Shown When Revealed */}
             {revealed && (
-                <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-xl bg-black/20 z-10">
+                <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-sm bg-black/20 z-10">
                     {watermark}
                 </div>
             )}
