@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect ,useState } from 'react';
 import { Head, Link, useForm } from '@inertiajs/react';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
