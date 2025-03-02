@@ -35,11 +35,18 @@ class RegisteredUserController extends Controller
     {
         
         $request->validate([
-            'name' => 'required|string|max:32|unique:'.User::class,
-            // 'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
-            // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'name' => [
+                'required',
+                'string',
+                'max:32',
+                'unique:' . User::class,
+                'regex:/^[a-zA-Z0-9_-]{3,}$/',
+            ],
             'invite' => ['required', 'exists:users,invite_code'],
             'telegram_id' => ['required', 'unique:users,telegram_id'],
+        ],[
+            'name.regex' => 'The name can only contain letters, numbers, -, and _, with no spaces and at least 3 characters.',
+            'telegram_id.unique' => 'This Telegram account is already registered. Please log in instead.',
         ]);
         $invite_code=InviteService::generateCode();
         $countryData = GeoIP::getLocation();
