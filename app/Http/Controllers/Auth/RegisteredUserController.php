@@ -53,7 +53,9 @@ class RegisteredUserController extends Controller
             // 'password' => Hash::make($request->password),
             'invite_code' => $invite_code,
             'country' => $countryCode,
-            'inviter' => $inviter_id
+            'inviter' => $inviter_id,
+            "telegram_id" => $request->telegram_id,
+
         ]);
 
         event(new Registered($user));
