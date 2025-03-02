@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const DemoCard = ({ url, watermark }) => {
+const DemoCard = ({ url, watermark , level }) => {
     const [revealed, setRevealed] = useState(false);
 
     return (
@@ -41,6 +41,12 @@ const DemoCard = ({ url, watermark }) => {
                     {watermark}
                 </div>
             )}
+            <div className="p-2 m-2">
+                <p>
+                    {level}
+                </p>
+
+            </div>
         </div>
     );
 };

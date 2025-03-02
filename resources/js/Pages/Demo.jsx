@@ -94,6 +94,7 @@ export default function Demo({ demos, userLevel, watermark }) {
                                 key={demo.id}
                                 url={userLevel >= demo.level ? demo.url : demo.blurred_url}
                                 watermark={watermark}
+                                level= {demo.level}
                             />
                         ))}
                     </div>
