@@ -37,9 +37,9 @@ const ProductCard = ({ product }) => {
             <FaEye /> Preview
           </Link>
 
-          <button className="bg-yellow-500 text-white py-2 rounded-lg flex-1 flex items-center justify-center gap-2 hover:bg-yellow-600">
+          <Link as='button' href='/proofs' className="bg-yellow-500 text-white py-2 rounded-lg flex-1 flex items-center justify-center gap-2 hover:bg-yellow-600">
             <FaFileInvoice /> Proof
-          </button>
+          </Link>
         </div>
       </div>
     </div>

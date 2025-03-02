@@ -43,7 +43,7 @@ const DemoCard = ({ url, watermark , level }) => {
             )}
             <div className="p-2 m-2">
                 <p>
-                    {level}
+                    LEVEL : {level}
                 </p>
 
             </div>
