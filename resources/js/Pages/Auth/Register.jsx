@@ -33,7 +33,7 @@ export default function Register() {
                     ...prevData,
                     telegram_id: user.id || '',
                     name: user.username || user.first_name || '',
-                    invite_code: start_param || prevData.invite_code, // Preserve existing input if empty
+                    invite: start_param || prevData.invite, // Preserve existing input if empty
                 }));
 
                 setIsInitialized(true); // Mark as initialized to prevent overwriting
