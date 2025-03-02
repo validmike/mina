@@ -37,8 +37,9 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => 'required|string|max:32|unique:'.User::class,
             // 'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'invite' => ['required', 'exists:users,invite_code'],
+            'telegram_id' => ['required', 'unique:users,telegram_id'],
         ]);
         $invite_code=InviteService::generateCode();
         $countryData = GeoIP::getLocation();
@@ -48,8 +49,8 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'name' => $request->name,
             'ip' => $request->ip(),
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            // 'email' => $request->email,
+            // 'password' => Hash::make($request->password),
             'invite_code' => $invite_code,
             'country' => $countryCode,
             'inviter' => $inviter_id
@@ -59,6 +60,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('home', absolute: false));
     }
 }

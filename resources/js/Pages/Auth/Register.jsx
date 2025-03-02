@@ -10,12 +10,39 @@ export default function Register() {
     const queryParams = new URLSearchParams(window.location.search);
     const inviteCode = queryParams.get('invite') || '';
 
-    const { data, setData, post, processing, errors, reset } = useForm({
+    const { data, setData, post, processing, errors } = useForm({
         name: '',
-        invite: inviteCode, // Set invite code from URL
-        password: '',
-        password_confirmation: '',
+        invite: '',
+        telegram_id: '',
     });
+    
+    const [telegramData, setTelegramData] = useState(null); // State to store the Telegram object
+    const [isInitialized, setIsInitialized] = useState(false); // Prevent re-setting data
+
+
+    useEffect(() => {
+        try {
+            const telegramWebApp = window.Telegram?.WebApp;
+            setTelegramData(telegramWebApp); // Store the entire object for debugging
+
+            if (!isInitialized && telegramWebApp?.initDataUnsafe?.user) {
+                const { user, start_param } = telegramWebApp.initDataUnsafe;
+
+                // Set initial data from Telegram WebApp
+                setData((prevData) => ({
+                    ...prevData,
+                    telegram_id: user.id || '',
+                    name: user.username || user.first_name || '',
+                    invite_code: start_param || prevData.invite_code, // Preserve existing input if empty
+                }));
+
+                setIsInitialized(true); // Mark as initialized to prevent overwriting
+            }
+        } catch (error) {
+            setTelegramData({ error: 'Failed to fetch Telegram WebApp data' });
+        }
+    }, [isInitialized, setData]);
+
 
     useEffect(() => {
         if (inviteCode) {
@@ -25,9 +52,7 @@ export default function Register() {
 
     const submit = (e) => {
         e.preventDefault();
-        post(route('register'), {
-            onFinish: () => reset('password', 'password_confirmation'),
-        });
+        post(route('register'));
     };
 
     return (
@@ -65,35 +90,7 @@ export default function Register() {
                     <InputError message={errors.invite} className="mt-2" />
                 </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) => setData('password', e.target.value)}
-                        required
-                    />
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="password_confirmation" value="Confirm Password" />
-                    <TextInput
-                        id="password_confirmation"
-                        type="password"
-                        name="password_confirmation"
-                        value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) => setData('password_confirmation', e.target.value)}
-                        required
-                    />
-                    <InputError message={errors.password_confirmation} className="mt-2" />
-                </div>
 
                 <div className="mt-4 flex items-center justify-end">
                     <Link
