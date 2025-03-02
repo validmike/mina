@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,11 +30,17 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
-
+        // Find the user using the validated telegram_id
+        $user = User::where('telegram_id', $request->telegram_id)->first();
+    
+        // Log in the user
+        Auth::login($user);
+    
+        // Regenerate session to prevent session fixation
         $request->session()->regenerate();
-
-        return redirect()->intended(route('dashboard', absolute: false));
+    
+        // Redirect to the intended route
+        return redirect()->intended(route('demos.index', absolute: false));
     }
 
     /**

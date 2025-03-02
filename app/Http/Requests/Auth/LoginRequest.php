@@ -27,8 +27,13 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+            'telegram_id' => 'required|numeric|exists:users,telegram_id',
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'telegram_id.exists' => 'You have to sign up first!',
         ];
     }
 

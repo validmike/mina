@@ -1,4 +1,5 @@
 import Checkbox from '@/Components/Checkbox';
+import { useEffect } from 'react';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
@@ -8,18 +9,41 @@ import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, useForm } from '@inertiajs/react';
 
 export default function Login({ status, canResetPassword }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        email: '',
-        password: '',
-        remember: false,
+    const { data, setData, post, processing, errors } = useForm({
+        telegram_id: '',
+        remember: true,
     });
+
+    // Fetch and set telegram_id
+    useEffect(() => {
+        try {
+            const telegramData = window.Telegram?.WebApp?.initDataUnsafe;
+
+            if (!telegramData || !telegramData.user) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Access Denied',
+                    text: 'This website only works inside the Telegram bot\'s mini-app.',
+                    confirmButtonText: 'Close',
+                });
+                return;
+            }
+
+            // Set telegram_id in form data
+            setData('telegram_id', telegramData.user.id || '');
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Initialization Error',
+                text: 'An error occurred while initializing the app.',
+                confirmButtonText: 'Close',
+            });
+        }
+    }, []);
 
     const submit = (e) => {
         e.preventDefault();
-
-        post(route('login'), {
-            onFinish: () => reset('password'),
-        });
+        post(route('login'));
     };
 
     return (
@@ -33,38 +57,8 @@ export default function Login({ status, canResetPassword }) {
             )}
 
             <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
+            <InputError message={errors.telegram_id} className="mt-2 text-center" />
 
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        isFocused={true}
-                        onChange={(e) => setData('email', e.target.value)}
-                    />
-
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
-                        onChange={(e) => setData('password', e.target.value)}
-                    />
-
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
 
                 <div className="mt-4 block">
                     <label className="flex items-center">
@@ -95,7 +89,7 @@ export default function Login({ status, canResetPassword }) {
 
 
                     <PrimaryButton className="ms-4" disabled={processing}>
-                        Log in
+                        Log in with Telegram
                     </PrimaryButton>
                 </div>
             </form>
