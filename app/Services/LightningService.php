@@ -107,6 +107,8 @@ class LightningService
     
             // Update the lightning payment status
             $lightningPayment->update(['status' => $status]);
+            dd($lightningPayment->order);
+
     
             // If this payment is "paid", update the related order's paid_at timestamp
             if ($status == 'paid' && !$lightningPayment->order->paid_at) {
