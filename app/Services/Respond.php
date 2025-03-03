@@ -5,9 +5,6 @@ namespace App\Services;
 use App\Jobs\BanUserJob;
 use App\Jobs\DeleteMessageJob;
 use App\Jobs\ProcessKickUser;
-use App\Models\Invite;
-use App\Models\User;
-use App\Models\Message;
 use App\Models\Order;
 use App\Models\Update;
 use Carbon\Carbon;
@@ -101,6 +98,10 @@ class Respond
         $url = "https://api.telegram.org/bot$botToken/createChatInviteLink?chat_id=$channel_id&creates_join_request=true&expire_date=$expireTimestamp";
     
         $response = Http::get($url);
+    
+        // Log the full response
+        Log::info('Telegram API Response:', ['response' => $response->json()]);
+    
         if ($response->successful()) {
             $responseData = $response->json();
     
