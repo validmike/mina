@@ -11,7 +11,7 @@ class Order extends Model
         'product_id',
         'link',
         'status',
-        'is_paid',
+        'paid_at',
         'order_number'
     ];
 
