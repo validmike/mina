@@ -76,21 +76,20 @@ export default function Login({ status, canResetPassword }) {
                 </div> */}
                 
 
-                <div className="mt-4 flex items-center justify-end">
+                <div className="mt-4 flex flex-col items-end space-y-4">
+                    <PrimaryButton className="w-full sm:w-auto" disabled={processing}>
+                        Log in with Telegram
+                    </PrimaryButton>
+
                     {canResetPassword && (
                         <Link
                             as='button'
                             href={route('register')}
-                            className=" rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                         >
                             Don't Have An Account?
                         </Link>
                     )}
-
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Log in with Telegram
-                    </PrimaryButton>
                 </div>
             </form>
         </GuestLayout>
