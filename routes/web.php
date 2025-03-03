@@ -18,7 +18,7 @@ Route::get('/dashboard', function () {
 });
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'banned'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
