@@ -1,4 +1,4 @@
-import { useEffect ,useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Head, Link, useForm } from '@inertiajs/react';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
@@ -15,10 +15,9 @@ export default function Register() {
         invite: '',
         telegram_id: '',
     });
-    
+
     const [telegramData, setTelegramData] = useState(null); // State to store the Telegram object
     const [isInitialized, setIsInitialized] = useState(false); // Prevent re-setting data
-
 
     useEffect(() => {
         try {
@@ -43,7 +42,6 @@ export default function Register() {
         }
     }, [isInitialized, setData]);
 
-
     useEffect(() => {
         if (inviteCode) {
             setData('invite', inviteCode);
@@ -58,6 +56,16 @@ export default function Register() {
     return (
         <GuestLayout>
             <Head title="Register" />
+
+            {/* Warning Banner */}
+            <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6" role="alert">
+                <p className="font-bold">Warning:</p>
+                <p>
+                    This website contains adult content that may not be suitable for all audiences. 
+                    Visitors must be at least 18 years of age to access this site. If you are under 18 
+                    or find such material offensive, please exit immediately.
+                </p>
+            </div>
 
             <form onSubmit={submit}>
                 <div>
@@ -89,10 +97,7 @@ export default function Register() {
                     />
                     <InputError message={errors.invite} className="mt-2" />
                     <InputError message={errors.telegram_id} className="mt-4" />
-
                 </div>
-
-
 
                 <div className="mt-4 flex items-center justify-end">
                     <Link
