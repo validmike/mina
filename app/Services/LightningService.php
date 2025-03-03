@@ -109,7 +109,7 @@ class LightningService
             $lightningPayment->update(['status' => $status]);
     
             // If this payment is "paid", update the related order's paid_at timestamp
-            if ($status === 'paid' && !$lightningPayment->order->paid_at) {
+            if ($status == 'paid' && !$lightningPayment->order->paid_at) {
                 $lightningPayment->order->update(['paid_at' => now()]);
             }
 
