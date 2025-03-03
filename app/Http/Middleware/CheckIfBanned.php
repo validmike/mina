@@ -16,7 +16,7 @@ class CheckIfBanned
     {
         $user = $request->user();
 
-        if ($user && $user->is_banned !== null) {
+        if ($user && $user->is_banned === 1) {
             return Inertia::render('Banned')->toResponse($request);
         }
 
