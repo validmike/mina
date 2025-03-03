@@ -86,6 +86,7 @@ class OrderService
             return; // Do nothing if the link already exists
         }
         $channelId = $order->product?->channel?->channel_id;
+        dd($channelId);
         $link = Respond::create_invite_link($channelId);
         if ($link) {
             $order->update(['link' => $link]);
