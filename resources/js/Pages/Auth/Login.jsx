@@ -60,7 +60,7 @@ export default function Login({ status, canResetPassword }) {
             <InputError message={errors.telegram_id} className="mt-2 text-center" />
 
 
-                <div className="mt-4 block">
+                {/* <div className="mt-4 block">
                     <label className="flex items-center">
                         <Checkbox
                             name="remember"
@@ -73,7 +73,7 @@ export default function Login({ status, canResetPassword }) {
                             Remember me
                         </span>
                     </label>
-                </div>
+                </div> */}
                 
 
                 <div className="mt-4 flex items-center justify-end">
