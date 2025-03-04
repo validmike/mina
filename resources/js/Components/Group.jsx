@@ -17,7 +17,7 @@ const Group = () => {
         <p className="text-gray-800 font-medium mt-2">Size: 66GB in zip files + 500 - 1000 videos on telegram</p>
         <p className="text-green-600 mt-1">Delivery: in a Telegram group</p>
         <p className="text-xl font-bold mt-2">$20 or 25$</p>
-        <p className="text-xl font-bold mt-2"> <span className='text-red-800'>DISCOUNT:</span> you can get a $10 discount if you have already purchased a pack.</p>
+        <p className="text-xl font-medium  mt-2"> <span className='text-red-800 font-bold'>DISCOUNT:</span> you can get a $10 discount if you have already purchased a pack.</p>
       </div>
 
       {/* Buttons section */}
