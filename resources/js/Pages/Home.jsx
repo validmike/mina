@@ -67,6 +67,12 @@ export default function Home({ invites, level, link }) {
                     BUY FULL COLLECTIONS
                 </Link>
 
+                {/* Warning Box */}
+                <div className="p-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-lg flex items-center">
+                    <FiAlertTriangle size={50} className="mr-2" />
+                    <p>Warning: save your invite link somewhere safe since Telegram will ban this bot and you may lose your access.</p>
+                </div>                
+                
 
 
                 {/* Invite System Explanation */}
@@ -83,11 +89,7 @@ export default function Home({ invites, level, link }) {
                     </p>
                 </div>
 
-                {/* Warning Box */}
-                <div className="p-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-lg flex items-center">
-                    <FiAlertTriangle size={50} className="mr-2" />
-                    <p>Warning: save your invite link somewhere safe since Telegram will ban this bot and you may lose your access.</p>
-                </div>
+
             </div>
         </AuthenticatedLayout>
     );
