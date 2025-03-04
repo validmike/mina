@@ -1,33 +1,44 @@
-import { useEffect, useState } from "react";
-import { Link } from "@inertiajs/react";
-import { FaSpinner } from "react-icons/fa";
+import ApplicationLogo from '@/Components/ApplicationLogo';
+import { Link } from '@inertiajs/react';
+import { useEffect, useState } from 'react';
+import { usePage } from '@inertiajs/react';
+import { FaSpinner } from 'react-icons/fa';
 
-export default function GuestLayout({ children }) {
-    const [loading, setLoading] = useState(true);
+export default function Guest({ children }) {
+    const { url } = usePage();
+    const [isChecking, setIsChecking] = useState(true);
 
     useEffect(() => {
-        const isTelegramMiniApp = window.Telegram?.WebApp;
+        try {
+            const telegramData = window.Telegram?.WebApp?.initDataUnsafe;
 
-        if (!isTelegramMiniApp) {
-            window.location.href = "https://telegram.org";
-        } else {
-            setLoading(false);
+            if (!telegramData || !telegramData.user) {
+                window.location.href = 'https://telegram.org/';
+            } else {
+                setIsChecking(false); // Hide loading once check is complete
+            }
+        } catch (error) {
+            window.location.href = 'https://telegram.org/';
         }
-    }, []);
+    }, [url]);
 
-    if (loading) {
+    if (isChecking) {
         return (
-            <div className="flex min-h-screen items-center justify-center bg-gray-100">
-                <FaSpinner className="animate-spin text-gray-600 text-4xl" />
+            <div className="flex min-h-screen items-center justify-center bg-gray-100 dark:bg-gray-900">
+                <FaSpinner className="animate-spin text-gray-600 dark:text-gray-300 text-4xl" />
             </div>
         );
     }
 
     return (
-        <div className="flex min-h-screen flex-col items-center bg-gray-100 pt-6 sm:justify-center sm:pt-0">
-            <div></div>
+        <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
+            <div>
+                <Link href="/">
+                    <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
+                </Link>
+            </div>
 
-            <div className="mt-6 w-full overflow-hidden bg-white px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg">
+            <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
                 {children}
             </div>
         </div>
