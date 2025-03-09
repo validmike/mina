@@ -1,4 +1,4 @@
-import { FaHome, FaPhotoVideo, FaShoppingCart, FaQuestionCircle, FaHeadset } from "react-icons/fa";
+import { FaHome, FaPhotoVideo, FaShoppingCart, FaQuestionCircle, IoLogoTelegram  } from "react-icons/fa";
 import { Link } from "@inertiajs/react";
 import StealthLink from "./StealthLink";
 
@@ -22,7 +22,7 @@ export default function BottomNavbar() {
         <span className="text-xs">Help</span>
       </Link>
       <Link as="button" href={route('help.contact')} className="flex flex-col items-center text-gray-600">
-        <FaHeadset size={24} />
+        <IoLogoTelegram  size={24} />
         <span className="text-xs">Support</span>
       </Link>
     </div>
