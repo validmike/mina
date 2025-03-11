@@ -15,8 +15,14 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $products = ProductResource::collection($products)->resolve();
-        return inertia('Products',compact('products'));
+        
+        // Get the value of the TELEGRAM_PREMIUM environment variable, defaulting to 0 if not found
+        $telegramPremium = env('TELEGRAM_PREMIUM', 0);
+    
+        // Pass both products and the telegramPremium value to the Inertia view
+        return inertia('Products', compact('products', 'telegramPremium'));
     }
+    
     public function group()
     {
         $telegram_link = env("ORDER_GROUP_LINK");
