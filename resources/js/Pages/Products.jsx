@@ -26,7 +26,8 @@ export default function Products({ products, telegramPremium }) {
                                         <strong>"I'd like to order a pack with a Telegram Premium gift."</strong>
                                     </p>
                                     <Link
-                                        to="/contact"
+                                        href="/contact"
+                                        as='button'
                                         className="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded-lg text-center"
                                     >
                                         Order Now
