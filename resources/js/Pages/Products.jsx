@@ -15,7 +15,7 @@ export default function Products({ products, telegramPremium }) {
                         <div className="p-6 text-gray-900">
 
                             {/* Show the special offer message if telegramPremium is 1 */}
-                            {telegramPremium === 1 && (
+                            {telegramPremium == 1 && (
                                 <div className="bg-yellow-100 p-4 rounded-lg mb-6">
                                     <p className="text-lg font-semibold text-yellow-700">
                                         Limited Offer! 🎉
