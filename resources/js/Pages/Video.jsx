@@ -32,7 +32,7 @@ export default function Video({ invites, watermark }) {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = () => {
-        const textToCopy = window.location.href; // or replace with the specific link you want
+        const textToCopy = ' https://files.catbox.moe/uyugk8.zip'; // or replace with the specific link you want
         navigator.clipboard.writeText(textToCopy).then(() => {
             setCopied(true);
             setTimeout(() => setCopied(false), 2000); // Reset the "copied" state after 2 seconds
