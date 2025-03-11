@@ -2,7 +2,7 @@ import Group from '@/Components/Group';
 import ProductCard from '@/Components/ProductCard';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import { Link } from 'react-router-dom'; // Assuming you're using React Router
+import { Link } from '@inertiajs/react'; 
 
 export default function Products({ products, telegramPremium }) {
     return (
