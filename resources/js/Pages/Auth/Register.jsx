@@ -61,7 +61,7 @@ export default function Register() {
             <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6" role="alert">
                 <p className="font-bold">Warning:</p>
                 <p>
-                    This website contains adult content that may not be suitable for all audiences. 
+                     
                     Visitors must be at least 18 years of age to access this site. If you are under 18 
                     or find such material offensive, please exit immediately.
                 </p>
