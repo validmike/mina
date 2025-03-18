@@ -64,4 +64,7 @@ Route::middleware(['auth', 'banned'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/stat', [HelpController::class, 'stat'])->name('stat');
+
+
 require __DIR__.'/auth.php';

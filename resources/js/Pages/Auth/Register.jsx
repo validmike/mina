@@ -62,7 +62,8 @@ export default function Register() {
                 <p className="font-bold">Warning:</p>
                 <p>
                      
-                    Visitors must be at least 18 years of age to access this site. If you are under 18 
+                    WARNING 
+                    +18 website . If you are under 18 
                     or find such material offensive, please exit immediately.
                 </p>
             </div>

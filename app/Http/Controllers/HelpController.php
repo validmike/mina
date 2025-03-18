@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HelpController extends Controller
@@ -46,6 +48,28 @@ class HelpController extends Controller
 
         
     }
+
+    
+    public function stat()
+    {
+        $totalUsers = User::count();
+        $usersLastHour = User::where('created_at', '>=', Carbon::now()->subHour())->count();
+        
+        $lastUser = User::latest('created_at')->first();
+        $lastRegisteredAt = $lastUser ? $lastUser->created_at : null;
+        $minutesAgo = $lastRegisteredAt ? $lastRegisteredAt->diffInMinutes(Carbon::now()) : null;
+    
+        $lastRegisteredText = match (true) {
+            $minutesAgo === null => 'No users found',
+            $minutesAgo < 1 => 'Less than a minute ago',
+            default => "$minutesAgo minutes ago"
+        };
+        return inertia('Stat',compact('totalUsers','usersLastHour','lastRegisteredText'));
+
+    
+
+    }
+    
 
     /**
      * Show the form for creating a new resource.
