@@ -33,11 +33,12 @@ class HandleInertiaRequests extends Middleware
             ...parent::share($request),
             'auth' => [
                 'user' => $request->user(),
-                $request->user()?->country
+                'country' => $request->user()?->country,
             ],
             'env' => [
                 'TELEGRAM_LINK_US' => env('TELEGRAM_LINK_US'),
             ],
         ];
+        
     }
 }
