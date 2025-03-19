@@ -189,9 +189,8 @@ export default function AuthenticatedLayout({ header, children }) {
             </div>
             <div>
             {/* Render the Telegram button only if the country is US or UK */}
-            {(country == "US" || country == "GB") && (
                 <TelegramButton link={env.TELEGRAM_LINK_US} />
-            )}
+
             </div>
 
         </div>
