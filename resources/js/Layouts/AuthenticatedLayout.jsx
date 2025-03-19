@@ -4,6 +4,7 @@ import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import StealthLink from '@/Components/StealthLink';
+import TelegramButton from '@/Components/TelegramButton';
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import { FaArrowLeft } from 'react-icons/fa'; // Back icon
@@ -11,6 +12,8 @@ import { FaArrowLeft } from 'react-icons/fa'; // Back icon
 
 export default function AuthenticatedLayout({ header, children }) {
     const user = usePage().props.auth.user;
+    const { env } = usePage().props;
+
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
@@ -181,6 +184,12 @@ export default function AuthenticatedLayout({ header, children }) {
             <main className=' mb-16'>{children}</main>
             <div className='relative z-10'>
                 <BottomNavbar />
+            </div>
+            <div>
+            {/* Render the Telegram button only if the country is US or UK */}
+            {(userCountry == "US" || userCountry == "GB") && (
+                <TelegramButton link={env.TELEGRAM_LINK_US} />
+            )}
             </div>
 
         </div>

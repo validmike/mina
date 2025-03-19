@@ -34,6 +34,9 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            'env' => [
+                'TELEGRAM_LINK_US' => env('TELEGRAM_LINK_US'),
+            ],
         ];
     }
 }
