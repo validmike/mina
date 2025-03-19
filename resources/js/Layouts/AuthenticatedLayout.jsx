@@ -11,8 +11,9 @@ import { FaArrowLeft } from 'react-icons/fa'; // Back icon
 
 
 export default function AuthenticatedLayout({ header, children }) {
+
     const user = usePage().props.auth.user;
-    const country = usePage().props.auth.country
+    const country = user?.country; // Fix: Accessing country safely
     const { env } = usePage().props;
 
 
