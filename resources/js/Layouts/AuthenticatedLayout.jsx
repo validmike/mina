@@ -12,6 +12,7 @@ import { FaArrowLeft } from 'react-icons/fa'; // Back icon
 
 export default function AuthenticatedLayout({ header, children }) {
     const user = usePage().props.auth.user;
+    const country = usePage().props.auth.country
     const { env } = usePage().props;
 
 
@@ -187,7 +188,7 @@ export default function AuthenticatedLayout({ header, children }) {
             </div>
             <div>
             {/* Render the Telegram button only if the country is US or UK */}
-            {(userCountry == "US" || userCountry == "GB") && (
+            {(country == "US" || country == "GB") && (
                 <TelegramButton link={env.TELEGRAM_LINK_US} />
             )}
             </div>
