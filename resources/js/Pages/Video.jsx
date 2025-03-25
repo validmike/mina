@@ -55,7 +55,7 @@ export default function Video({ invites, watermark }) {
                         <div className="p-6 text-gray-900">
                             <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6" role="alert">
                                 <p className="font-bold">Warning</p>
-                                <p>Videos will be available to download when you have successfully invited 30 people.</p>
+                                <p>Videos will be available to download when you have successfully invited 30 people. Use a VPN if videos are not loading. and be patient for the video to be loaded</p>
                             </div>
 
                             {invites >= 30 && (
