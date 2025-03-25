@@ -92,12 +92,7 @@ export default function Video({ invites, watermark }) {
                                         </video>
 
                                         {/* Watermark */}
-                                        <div
-                                            className="absolute inset-0 flex items-center justify-center text-black opacity-75"
-                                            style={{ zIndex: 1 }}
-                                        >
-                                            {watermark}
-                                        </div>
+
                                     </div>
                                     
                                     {/* Caption Below the Video */}
