@@ -3,39 +3,39 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
 export default function Video({ invites, watermark }) {
-    // Hardcoded image URLs and captions
-    const images = [
+    // Hardcoded video URLs and captions
+    const videos = [
         {
-            url: 'https://files.catbox.moe/lyxd4g.jpg',
-            caption: 'Pre-teen streching her butthole'
+            url: 'https://files.catbox.moe/llaxru.mp4',
+            caption: 'invite 30 people to get the full uncensored video'
         },
         {
-            url: 'https://files.catbox.moe/641s3r.jpg',
-            caption: 'russian pre-teen masterbuting'
+            url: 'https://files.catbox.moe/cjr289.mp4',
+            caption: 'invite 30 people to get the full uncensored video'
         },
         {
-            url: 'https://files.catbox.moe/wr1r9b.jpg',
-            caption: 'she takes her own virginity'
+            url: 'https://files.catbox.moe/hf1x10.mp4',
+            caption: 'invite 30 people to get the full uncensored video'
         },
         {
-            url: 'https://files.catbox.moe/pbx2pv.jpg',
-            caption: 'a noisy hard-core sex'
+            url: 'https://files.catbox.moe/u5wtyv.mp4',
+            caption: 'invite 30 people to get the full uncensored video'
         },
         {
-            url: 'https://files.catbox.moe/uvxxie.jpg',
-            caption: 'an asian blowjob'
+            url: 'https://files.catbox.moe/afm3yo.mp4',
+            caption: 'invite 30 people to get the full uncensored video'
         },
-        // Add more images here if needed
+        // Add more videos here if needed
     ];
 
     // State to track whether the link is copied
     const [copied, setCopied] = useState(false);
 
     const handleCopy = () => {
-        const textToCopy = ' https://files.catbox.moe/uyugk8.zip'; // or replace with the specific link you want
+        const textToCopy = 'https://files.catbox.moe/p4hk45.zip';
         navigator.clipboard.writeText(textToCopy).then(() => {
             setCopied(true);
-            setTimeout(() => setCopied(false), 2000); // Reset the "copied" state after 2 seconds
+            setTimeout(() => setCopied(false), 2000);
         });
     };
 
@@ -53,21 +53,17 @@ export default function Video({ invites, watermark }) {
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
-                        <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6" role="alert">
-                            <p className="font-bold">Warning</p>
-                            <p>videos will be available to download when you have successfully invited 30 people.</p>
-                            <p></p>
-                        </div>
-                            
-                            
+                            <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6" role="alert">
+                                <p className="font-bold">Warning</p>
+                                <p>Videos will be available to download when you have successfully invited 30 people.</p>
+                            </div>
 
-                            {/* Section visible when invites are 30 or more */}
                             {invites >= 30 && (
                                 <div className="mb-8 p-4 bg-yellow-100 rounded-md flex items-center justify-between">
                                     <div>
                                         <p className="text-gray-700">Copy this link and open it with a web browser:</p>
                                         <a href='https://files.catbox.moe/uyugk8.zip' className="text-blue-500">
-                                        https://files.catbox.moe/uyugk8.zip
+                                            https://files.catbox.moe/uyugk8.zip
                                         </a>
                                     </div>
                                     <button
@@ -79,46 +75,35 @@ export default function Video({ invites, watermark }) {
                                 </div>
                             )}
 
-                            {/* Images Section */}
-                            {images.map((image, index) => (
+                            {/* Videos Section */}
+                            {videos.map((video, index) => (
                                 <div key={index} className="mb-8">
-                                    {/* Background Image Container */}
-                                    <div
-                                        className="relative w-full"
-                                        style={{
-                                            backgroundImage: `url(${image.url})`,
-                                            backgroundSize: 'contain', // Ensures image is fully visible without cropping
-                                            backgroundPosition: 'center',
-                                            backgroundRepeat: 'no-repeat',
-                                            height: '300px', // Adjust the height as needed
-                                        }}
-                                    >
+                                    {/* Video Player */}
+                                    <div className="relative w-full">
+                                        <video 
+                                            controls 
+                                            controlsList="nodownload" 
+                                            disablePictureInPicture 
+                                            onContextMenu={(e) => e.preventDefault()} 
+                                            className="w-full rounded-lg"
+                                        >
+                                            <source src={video.url} type="video/mp4" />
+                                            Your browser does not support the video tag.
+                                        </video>
+
                                         {/* Watermark */}
                                         <div
                                             className="absolute inset-0 flex items-center justify-center text-black opacity-75"
-                                            style={{
-                                                zIndex: 1, // Ensures watermark is above the image
-                                            }}
+                                            style={{ zIndex: 1 }}
                                         >
                                             {watermark}
                                         </div>
                                     </div>
                                     
-                                    {/* Caption Below the Image */}
+                                    {/* Caption Below the Video */}
                                     <div className="text-center mt-4 text-lg font-semibold text-gray-800">
-                                        {image.caption}
+                                        {video.caption}
                                     </div>
-                                    <video 
-                                        controls 
-                                        controlsList="nodownload" 
-                                        disablePictureInPicture 
-                                        onContextMenu={(e) => e.preventDefault()} 
-                                        style={{ width: "100%", maxWidth: "100%" }}
-                                        >
-                                        <source src="https://files.catbox.moe/llaxru.mp4" type="video/mp4" />
-                                        Your browser does not support the video tag.
-                                    </video>
-
                                 </div>
                             ))}
                         </div>
