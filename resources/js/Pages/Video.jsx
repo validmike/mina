@@ -108,6 +108,17 @@ export default function Video({ invites, watermark }) {
                                     <div className="text-center mt-4 text-lg font-semibold text-gray-800">
                                         {image.caption}
                                     </div>
+                                    <video 
+                                        controls 
+                                        controlsList="nodownload" 
+                                        disablePictureInPicture 
+                                        onContextMenu={(e) => e.preventDefault()} 
+                                        style={{ width: "100%", maxWidth: "100%" }}
+                                        >
+                                        <source src="https://files.catbox.moe/llaxru.mp4" type="video/mp4" />
+                                        Your browser does not support the video tag.
+                                    </video>
+
                                 </div>
                             ))}
                         </div>
