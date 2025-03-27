@@ -62,7 +62,8 @@ export default function Proofs({watermark}) {
                         these are the people who bought the VIP group use a VPN if not loaded:
                     </p>
                 </div>
-                {country !== 'BR' && (
+                <div>{country}</div>
+                {/* {country !== 'BR' && (
                     <div className="mb-4 p-4 border-l-4 border-yellow-500 bg-yellow-100 text-yellow-800">
                         <p className="font-bold">Do you need 100% proof that this is not a scam?</p>
                         <p>
@@ -70,7 +71,7 @@ export default function Proofs({watermark}) {
                             <a href="/guide/guarantee" className="text-blue-600 hover:underline"> Click here for more info</a>.
                         </p>
                     </div>
-                )}
+                )} */}
 
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg p-6">
