@@ -48,6 +48,11 @@ class HelpController extends Controller
 
         
     }
+    public function guarantee()
+    {
+        return inertia('Guarantee');
+      
+    }
 
     
     public function stat()

@@ -50,6 +50,7 @@ Route::middleware(['auth', 'banned'])->group(function () {
     Route::get('/cryptos/{crypto}', [CryptoController::class, 'show'])->name('cryptos.show');
 
     Route::get('/guide', [HelpController::class, 'guide'])->name('help.guide');
+    Route::get('/guide/guarantee', [HelpController::class, 'guarantee'])->name('help.guarantee');
     Route::get('/guide/cashapp', [HelpController::class, 'cashapp'])->name('help.cashapp');
     Route::get('/guide/azteco', [HelpController::class, 'azteco'])->name('help.azteco');
     Route::get('/guide/satoshi', [HelpController::class, 'satoshi'])->name('help.satoshi');
