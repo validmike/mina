@@ -57,8 +57,11 @@ class DemoController extends Controller
     public function proofs()
     {
         $watermark = env('SHORT_LINK');
-        return inertia("Proofs",compact('watermark'));
+        $country = auth()->user()->country ?? null; // Get user's country or null if not authenticated
+    
+        return inertia("Proofs", compact('watermark', 'country'));
     }
+    
     public function group()
     {
         $watermark = env('SHORT_LINK');
