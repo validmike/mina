@@ -7,23 +7,23 @@ export default function Video({ invites, watermark }) {
     const videos = [
         {
             url: 'https://files.catbox.moe/llaxru.mp4',
-            caption: 'invite 30 people to get the full uncensored video'
+            caption: 'invite 30 people or buy a pack get the full uncensored video'
         },
         {
             url: 'https://files.catbox.moe/cjr289.mp4',
-            caption: 'invite 30 people to get the full uncensored video'
+            caption: 'invite 30 people or buy a pack to get the full uncensored video'
         },
         {
             url: 'https://files.catbox.moe/hf1x10.mp4',
-            caption: 'invite 30 people to get the full uncensored video'
+            caption: 'invite 30 people or buy a pack to get the full uncensored video'
         },
         {
             url: 'https://files.catbox.moe/u5wtyv.mp4',
-            caption: 'invite 30 people to get the full uncensored video'
+            caption: 'invite 30 people or buy a pack to get the full uncensored video'
         },
         {
             url: 'https://files.catbox.moe/afm3yo.mp4',
-            caption: 'invite 30 people to get the full uncensored video'
+            caption: 'invite 30 people or buy a pack to get the full uncensored video'
         },
         // Add more videos here if needed
     ];
