@@ -7,6 +7,28 @@ export default function Proofs({watermark , country}) {
     const sliders = [
         {
             images: [
+                "https://files.catbox.moe/v0d21e.jpg",
+                "https://files.catbox.moe/7pcjok.jpg"
+            ],
+            watermark: watermark
+        },
+        {
+            images: [
+                "https://files.catbox.moe/3kmlkr.jpg",
+                "https://files.catbox.moe/7wd8bu.jpg"
+            ],
+            watermark: watermark
+        },
+        {
+            images: [
+                "https://files.catbox.moe/lnuscn.jpg",
+                "https://files.catbox.moe/zgji6l.jpg"
+            ],
+            watermark: watermark
+        },
+
+        {
+            images: [
                 "https://files.catbox.moe/8uu6jw.jpg",
                 "https://files.catbox.moe/lnila1.jpg"
             ],
