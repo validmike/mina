@@ -1,5 +1,5 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import ScreenshotSlider from '@/Components/ScreenshotSlider';
 
 export default function Proofs({watermark , country}) {
@@ -66,7 +66,7 @@ export default function Proofs({watermark , country}) {
                         <p className="font-bold">Do you need 100% proof that this is not a scam?</p>
                         <p>
                             If these screenshots are not enough, I have a way to make you sure this is not a scam. 
-                            <a href="/guide/guarantee" className="text-blue-600 hover:underline"> Click here for more info</a>.
+                            <Link as='button' href="/guide/guarantee" className="text-blue-600 hover:underline"> Click here for more info</Link>.
                         </p>
                     </div>
                 )}
