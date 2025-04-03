@@ -1,6 +1,7 @@
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import BottomNavbar from '@/Components/BottomNavbar';
 import Dropdown from '@/Components/Dropdown';
+import MessageIcon from '@/Components/MessageIcon';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import StealthLink from '@/Components/StealthLink';
@@ -189,8 +190,9 @@ export default function AuthenticatedLayout({ header, children }) {
             </div>
             <div>
             {/* Render the Telegram button only if the country is US or UK */}
-            {(country == "US" || country === "GB") && (
-                <TelegramButton link={env.TELEGRAM_LINK_US} />
+            {(country == "US" || country == "GB" || country == "DE" ||country == "CA") && (
+                // <TelegramButton link={env.TELEGRAM_LINK_US} />
+                <MessageIcon></MessageIcon>
             )}
             </div>
 

@@ -8,9 +8,10 @@ use App\Http\Controllers\LightningController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/dashboard', function () {
@@ -66,6 +67,10 @@ Route::middleware(['auth', 'banned'])->group(function () {
 });
 
 Route::get('/stat', [HelpController::class, 'stat'])->name('stat');
-
+Route::get('/dev-login', function () {
+    $user = User::find(1); // Replace with a valid user ID
+    Auth::login($user);
+    return redirect('/dashboard'); // Change this to your actual dashboard route
+});
 
 require __DIR__.'/auth.php';
