@@ -189,12 +189,13 @@ export default function AuthenticatedLayout({ header, children }) {
                 <BottomNavbar />
             </div>
             <div>
-            {/* Render the Telegram button only if the country is US or UK */}
-            {(country == "US" || country == "GB" || country == "DE" ||country == "CA") && (
-                // <TelegramButton link={env.TELEGRAM_LINK_US} />
-                <MessageIcon></MessageIcon>
-            )}
+                {/* Render the Telegram button only if the country is US or UK */}
+                {/* {(country == "US" || country == "GB" || country == "DE" ||country == "CA") && (
+                    // <TelegramButton link={env.TELEGRAM_LINK_US} />
+                )} */}
             </div>
+            <MessageIcon></MessageIcon>
+
 
         </div>
     );
