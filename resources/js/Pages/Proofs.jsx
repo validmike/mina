@@ -14,7 +14,7 @@ export default function Proofs({watermark , country}) {
         },
         {
             images: [
-                "https://files.catbox.moe/3kmlkr.jpg",
+                "https://files.catbox.moe/126puh.jpg",
                 "https://files.catbox.moe/7wd8bu.jpg"
             ],
             watermark: watermark
