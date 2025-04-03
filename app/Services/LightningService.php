@@ -107,7 +107,7 @@ class LightningService
     
             // Update the lightning payment status
             $lightningPayment->update(['status' => $status]);
-            Log::error("dsfdsf " . $lightningPayment->order->paid_at);
+            // Log::error("dsfdsf " . $lightningPayment->order->paid_at);
 
     
             // If this payment is "paid", update the related order's paid_at timestamp

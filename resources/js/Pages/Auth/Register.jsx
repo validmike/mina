@@ -60,12 +60,13 @@ export default function Register() {
             {/* Warning Banner */}
             <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6" role="alert">
                 <p className="font-bold">Warning:</p>
-                <p>
+                {/* <p>
                      
                     WARNING 
                     +18 website . If you are under 18 
                     or find such material offensive, please exit immediately.
-                </p>
+                </p> */}
+                <img src="https://catbox.moe/pictures/qts/1456435736475.png" alt="use a vpn if image is not loaded" />
             </div>
 
             <form onSubmit={submit}>
