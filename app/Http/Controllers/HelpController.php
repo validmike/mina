@@ -59,7 +59,7 @@ class HelpController extends Controller
     {
         $totalUsers = User::count();
         $usersLastHour = User::where('created_at', '>=', Carbon::now()->subHour())->count();
-        
+    
         $lastUser = User::latest('created_at')->first();
         $lastRegisteredAt = $lastUser ? $lastUser->created_at : null;
         $minutesAgo = $lastRegisteredAt ? $lastRegisteredAt->diffInMinutes(Carbon::now()) : null;
@@ -69,11 +69,25 @@ class HelpController extends Controller
             $minutesAgo < 1 => 'Less than a minute ago',
             default => "$minutesAgo minutes ago"
         };
-        return inertia('Stat',compact('totalUsers','usersLastHour','lastRegisteredText'));
-
     
-
+        $today = Carbon::today();
+        $yesterday = Carbon::yesterday();
+        $dayBeforeYesterday = Carbon::today()->subDays(2);
+    
+        $usersToday = User::whereDate('created_at', $today)->count();
+        $usersYesterday = User::whereDate('created_at', $yesterday)->count();
+        $usersDayBeforeYesterday = User::whereDate('created_at', $dayBeforeYesterday)->count();
+    
+        return inertia('Stat', compact(
+            'totalUsers',
+            'usersLastHour',
+            'lastRegisteredText',
+            'usersToday',
+            'usersYesterday',
+            'usersDayBeforeYesterday'
+        ));
     }
+    
     
 
     /**
