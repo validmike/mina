@@ -16,6 +16,15 @@
         @vite(['resources/js/app.jsx', "resources/js/Pages/{$page['component']}.jsx"])
         @inertiaHead
         <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5YT7JGSBN"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q5YT7JGSBN');
+        </script>
 
     </head>
     <body class="font-sans antialiased">
