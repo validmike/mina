@@ -1,7 +1,11 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head, Link } from '@inertiajs/react';
+import { Button } from '@headlessui/react';
+import { Head, Link,router } from '@inertiajs/react';
 
-export default function Group({telegram_link}) {
+export default function Group({telegram_link,groupProductId}) {
+    const handleBuy = () => {
+        router.post(route("orders.store"), { product_id: groupProductId });
+      };
     return (
         <AuthenticatedLayout
             header={
@@ -16,7 +20,6 @@ export default function Group({telegram_link}) {
                 <div className="mx-auto max-w-4xl sm:px-6 lg:px-8">
                     <div className="bg-white shadow-md rounded-lg p-6 text-gray-900">
                         <h3 className="text-lg font-semibold mb-4">Group Purchase Information</h3>
-                        <p className="mb-2">Currently, purchasing access to the group is only available by contacting me on Telegram.</p>
                         <p className="mb-4">The group includes <span className="font-bold">both Packs 1 & 2 plus additional exclusive content:</span></p>
                         <p>if you pay $20 you get 500 more videos direclty in the group</p>
                         <p>if you pay $25 you get 1000 more videos direclty in the group</p>
@@ -37,12 +40,23 @@ export default function Group({telegram_link}) {
                         >
                             View Payment Guide
                         </Link>
+
+                        <h3 className="text-xl font-semibold mt-4 mb-2">How to Order:</h3>
+                        <p className=' font-bold mb-2'>Contact me on Telegram:</p>
                         
-                        <div className="text-center">
+                        <div className="text-center mb-1">
                             <a href={telegram_link} target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg inline-block">
-                                Order Now
+                            Contact Support to Buy
                             </a>
                         </div>
+                        <p className=' font-bold mb-2'>Pay on website and automatically get your link to the group (only 25$ group):</p>
+
+                        <div className="text-center mb-1">
+                            <Button onClick={handleBuy}  className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg inline-block">
+                            Buy Now (Online Payment)
+                            </Button>
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CryptoController;
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LightningController;
@@ -36,6 +37,9 @@ Route::middleware(['auth', 'banned'])->group(function () {
     Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
     Route::get('/orders/link/{order}', [OrderController::class, 'link'])->name('orders.link');
     Route::post('orders/create_link/', [OrderController::class, 'createLink'])->name('order.createLink');
+
+    Route::post('/groups/link', [GroupController::class, 'attachToGroup'])->name('groups.link');
+
 
     Route::get('/demos', [DemoController::class, 'index'])->name('demos.index');
     Route::get('/proofs', [DemoController::class, 'proofs'])->name('demos.proofs');

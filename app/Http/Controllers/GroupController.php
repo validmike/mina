@@ -2,32 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ProductResource;
-use App\Models\Product;
+use App\Services\GroupService;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class GroupController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Product::where('is_group', 0)->get();
-        $products = ProductResource::collection($products)->resolve();
-        
-        // Get the value of the TELEGRAM_PREMIUM environment variable, defaulting to 0 if not found
-        $telegramPremium = env('TELEGRAM_PREMIUM', 0);
-    
-        // Pass both products and the telegramPremium value to the Inertia view
-        return inertia('Products', compact('products', 'telegramPremium'));
-    }
-    
-    public function group()
-    {
-        $telegram_link = env("ORDER_GROUP_LINK");
-        $groupProductId = Product::where('is_group', 1)->value('id');
-        return inertia('Group', compact('telegram_link','groupProductId'));
+        //
     }
 
     /**
@@ -77,4 +62,25 @@ class ProductController extends Controller
     {
         //
     }
+
+
+
+    public function attachToGroup(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|integer|exists:orders,id',
+        ]);
+
+        $user_id = auth()->id();
+        $order_id = $request->input('id');
+
+        $group = GroupService::attach($order_id, $user_id);
+
+        if (!$group) {
+            return redirect()->back()->with('error', 'there was a problem please contact support');
+        }
+
+        return redirect()->back()->with('success', 'group link was retrived');
+    }
+
 }

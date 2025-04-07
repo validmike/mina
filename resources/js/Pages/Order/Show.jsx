@@ -1,5 +1,6 @@
 import OrderCard from '@/Components/OrderCard';
 import PaidOrder from '@/Components/PaidOrder';
+import PaidOrderGroup from '@/Components/PaidOrderGroup';
 import PaymentList from '@/Components/PaymentList';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
@@ -16,12 +17,14 @@ export default function Show({ order, payments }) {
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
-                            {order.paid_at ? (
-                                // Component for paid order
-                                <>
-                                <PaidOrder id={order.id} number ={order.number}></PaidOrder>
-                                </>
-                            ) : (
+                                {order.paid_at ? (
+                                    order.isGroup === 1 ? (
+                                        <PaidOrderGroup id={order.id} number={order.number} order={order}></PaidOrderGroup>
+                                        
+                                    ) : (
+                                        <PaidOrder id={order.id} number={order.number} />
+                                    )
+                                ) : (
                                 <>
                                     <OrderCard order={order}></OrderCard>
                                     <div className='mt-2'>

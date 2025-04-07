@@ -35,6 +35,10 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
                 'country' => $request->user()?->country,
             ],
+            'flash' => [
+                'success' => fn () => $request->session()->get('success'),
+                'error' => fn () => $request->session()->get('error'),
+            ],
             'env' => [
                 'TELEGRAM_LINK_US' => env('TELEGRAM_LINK_US'),
             ],

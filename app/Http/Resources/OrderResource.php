@@ -21,7 +21,9 @@ class OrderResource extends JsonResource
             'price' => $this->product->price ,
             'paid_at' => $this->paid_at ,
             'status'=> $this->status,
-            'link'=> $this->link
+            'link'=> $this->link,
+            'isGroup'=>$this->product->is_group,
+            'groupLink'=>$this->group?->link,
         ];
     }
 }
