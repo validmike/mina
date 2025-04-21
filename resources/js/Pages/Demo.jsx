@@ -79,6 +79,17 @@ export default function Demo({ demos, userLevel, watermark }) {
                             PACK 2
                         </Link>
                         <Link
+                            href="/demos?product_id=5"
+                            as='button'
+                            className={`px-4 py-2 text-sm font-medium ${
+                                productId === '2'
+                                    ? 'text-blue-600 border-b-2 border-blue-600'
+                                    : 'text-gray-500 hover:text-gray-700'
+                            }`}
+                        >
+                            Organized
+                        </Link>
+                        <Link
                             href="/demos/group"
                             as='button'
                             className='px-4 py-2 text-sm font-medium'

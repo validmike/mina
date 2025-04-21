@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
       <img
         src={product.image}
         alt={product.title}
-        className="w-full h-48 object-cover rounded-lg"
+        className="max-h-full max-w-full object-contain"
       />
 
       <div className="mt-3">
