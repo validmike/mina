@@ -30,9 +30,9 @@ export default function AztecoPage() {
                                 </a>
                             </li>
                             <li>
-                                <a href="https://giftmecrypto.io" target="_blank"  className="text-blue-600 hover:underline">
-                                    Gift Me Crypto Gift Card
-                                </a>
+                                <p   className="text-blue-600 hover:underline">
+                                 giftmecrypto.io
+                                </p>
                             </li>
                         </ul>
                         <div className="flex space-x-4 border-b mb-4">
