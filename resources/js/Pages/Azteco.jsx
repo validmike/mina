@@ -25,12 +25,12 @@ export default function AztecoPage() {
                         </p>
                         <ul className="list-disc pl-6 mb-4">
                             <li>
-                                <a href="https://azte.co/redeem" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                <a href="https://azte.co/buy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                                     Azteco Lightning Bitcoin Voucher
                                 </a>
                             </li>
                             <li>
-                                <a href="https://giftmecrypto.io" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                <a href="https://giftmecrypto.io" target="_blank"  className="text-blue-600 hover:underline">
                                     Gift Me Crypto Gift Card
                                 </a>
                             </li>
