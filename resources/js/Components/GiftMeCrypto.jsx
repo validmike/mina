@@ -5,10 +5,13 @@ export default function GiftMeCrypto() {
     return (
         <div className="space-y-4">
             <p>
-                You can find a list of websites that sell Gift Me Crypto gift cards at the following link:
+                You can find a list of websites that sell Gift Me Crypto gift cards at their official website:
             </p>
-            <a href="https://giftmecrypto.io/en/partners" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                GiftMeCrypto Partners <FiExternalLink className="inline w-4 h-4" />
+            <p  className="text-blue-600 hover:underline">
+             giftmecrypto.io <FiExternalLink className="inline w-4 h-4" />
+            </p>
+            <a href="https://driffle.com/gift-me-crypto-25-eur-gift-card-global-digital-key-p9925699" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                Buy on Driffle (visa/mastercard) <FiExternalLink className="inline w-4 h-4" />
             </a>
             <p>
                 After purchasing, please contact me on Telegram with the key.
