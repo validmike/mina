@@ -28,12 +28,12 @@ export default function Azteco() {
                 </li>
                 <li>
                     <a href="https://www.g2a.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                        G2A <FiExternalLink className="inline w-4 h-4" />
+                        G2A (skrill/paysafcard) <FiExternalLink className="inline w-4 h-4" />
                     </a>
                 </li>
                 <li>
                     <a href="https://www.moontopup.com/us/en/payment-cards/azteco-bitcoin-voucher-lightning/azteco-bitcoin-25-voucher-lightning" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                        MoonTopUp <FiExternalLink className="inline w-4 h-4" />
+                        MoonTopUp(paypal) <FiExternalLink className="inline w-4 h-4" />
                     </a>
                 </li>
                 <li>

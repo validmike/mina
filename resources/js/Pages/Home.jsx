@@ -70,7 +70,7 @@ export default function Home({ invites, level, link }) {
                 {/* Warning Box */}
                 <div className="p-4 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 rounded-lg flex items-center">
                     <FiAlertTriangle size={50} className="mr-2" />
-                    <p>Warning: save your invite link somewhere safe since Telegram will ban this bot and you may lose your access.</p>
+                    <p>Warning: save your invite link somewhere safe since Telegram will ban this mini-app and you may lose your access.</p>
                 </div>                
                 
 
