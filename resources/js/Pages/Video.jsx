@@ -36,7 +36,7 @@ export default function Video({ invites, watermark }) {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = () => {
-        const textToCopy = 'https://files.catbox.moe/p4hk45.zip';
+        const textToCopy = 'https://files.catbox.moe/4jj2ns.zip';
         navigator.clipboard.writeText(textToCopy).then(() => {
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);

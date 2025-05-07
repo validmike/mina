@@ -9,6 +9,7 @@ use App\Http\Controllers\LightningController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TopicController;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -60,8 +61,8 @@ Route::middleware(['auth', 'banned'])->group(function () {
     Route::get('/guide/azteco', [HelpController::class, 'azteco'])->name('help.azteco');
     Route::get('/guide/satoshi', [HelpController::class, 'satoshi'])->name('help.satoshi');
 
-
-
+    Route::get('/topics', [TopicController::class, 'index'])->name('topics.index');
+    Route::get('/topics/{topic}', [TopicController::class, 'show'])->name('topics.show');
 
 
 
