@@ -19,16 +19,19 @@ export default function Index({ topics }) {
                             <p className="mb-6 text-gray-600">
                                 Welcome to the Help Center. Choose a topic below to get quick answers and support.
                             </p>
-                            {topics.map((topic) => (
-                                <Link
-                                    key={topic.id}
-                                    href={route('topics.show', topic.id)}
-                                    as="button"
-                                    className="px-4 py-2 border border-gray-500 text-gray-700 rounded hover:border-blue-500 hover:text-blue-600 transition-all duration-150"
-                                >
-                                    {topic.title}
-                                </Link>
-                            ))}
+                            {/* Apply block class to ensure the links stack vertically */}
+                            <div className="space-y-2">
+                                {topics.map((topic) => (
+                                    <Link
+                                        key={topic.id}
+                                        href={route('topics.show', topic.id)}
+                                        as="button"
+                                        className="w-full px-4 py-2 border border-gray-500 text-gray-700 rounded hover:border-blue-500 hover:text-blue-600 transition-all duration-150"
+                                    >
+                                        {topic.title}
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

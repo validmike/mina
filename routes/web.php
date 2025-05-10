@@ -25,7 +25,9 @@ Route::middleware(['auth', 'banned'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
-    Route::get('/help', [HelpController::class, 'index'])->name('help.index');
+    Route::get('/help', function () {
+        return redirect()->route('topics.index');
+    });
     Route::get('/contact', [HelpController::class, 'contact'])->name('help.contact');
     Route::get('/trade', [HelpController::class, 'trade'])->name('trade');
     
