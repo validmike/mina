@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { FiClipboard, FiExternalLink } from 'react-icons/fi';
 
 export default function Cashapp() {
-    const videoUrl = "https://www.youtube.com/embed/fDjDH_WAvYI?si=jdC6GWY1clr6V57k";
+    const videoUrl = "https://www.youtube.com/watch?v=dneXkNUY_1s";
     const [copied, setCopied] = useState(false);
 
     const copyToClipboard = () => {
