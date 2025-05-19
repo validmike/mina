@@ -61,6 +61,7 @@ Route::middleware(['auth', 'banned'])->group(function () {
     Route::get('/guide/guarantee', [HelpController::class, 'guarantee'])->name('help.guarantee');
     Route::get('/guide/cashapp', [HelpController::class, 'cashapp'])->name('help.cashapp');
     Route::get('/guide/azteco', [HelpController::class, 'azteco'])->name('help.azteco');
+    Route::get('/guide/speed', [HelpController::class, 'speed'])->name('help.speed');
     Route::get('/guide/satoshi', [HelpController::class, 'satoshi'])->name('help.satoshi');
 
     Route::get('/topics', [TopicController::class, 'index'])->name('topics.index');

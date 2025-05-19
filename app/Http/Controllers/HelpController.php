@@ -35,6 +35,11 @@ class HelpController extends Controller
         return inertia('Azteco');
 
     }
+    public function speed()
+    {
+        return inertia('Speed');
+
+    }
     public function satoshi()
     {
         return inertia('Satoshi');

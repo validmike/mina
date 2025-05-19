@@ -15,15 +15,20 @@ export default function PaymentGuide() {
             <div className="bg-white p-6 rounded-lg shadow-lg text-gray-800 space-y-4 mt-6 max-w-7xl mx-auto border border-gray-200">
                 <h3 className="text-xl font-semibold">Don't know how to pay with cryptocurrencies?</h3>
                 <p className="text-gray-600">Select one of the options below for help:</p>
-                <div className="space-y-3">
+                <div className="space-y-3 mb-8 pb">
                     <Link as='button' href={route('help.cashapp')}>
                         <button className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 mt-2 rounded-lg transition duration-300">
                             I have CashApp but don’t know how to send Bitcoin with it.
                         </button>
                     </Link>
+                    <Link as='button' href={route('help.speed')}>
+                        <button className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 mt-2 rounded-lg transition duration-300">
+                        Buy Bitcoin with Revolut, card, Google Pay, or bank transfer — then pay instantly using Lightning.
+                        </button>
+                    </Link>
                     <Link as='button' href={route('help.azteco')}>
                         <button className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-6 mt-2 rounded-lg transition duration-300">
-                            I want to pay with visa/mastercard or PayPal and apple pay.
+                            Pay with crypto gift card (card, Paypal, applePay)
                         </button>
                     </Link>
 

@@ -78,12 +78,15 @@ const LightningInvoice = ({ id, amountSats, expires_at, amountDollars, address ,
                     <QRCodeSVG value={address} size={160} />
                 </div>
                 <div className="flex justify-center mb-4 text-sm">
-                    <input
+                    <textarea
                         readOnly
                         value={address}
-                        className="text-xs w-full text-center truncate border px-2 py-1 bg-gray-100"
+                        className="text-xs text-center border px-2 py-1 bg-gray-100 resize-none w-full"
+                        rows={6} // Adjust as needed
                     />
                 </div>
+
+
 
 
                 {/* Buttons */}
@@ -106,7 +109,7 @@ const LightningInvoice = ({ id, amountSats, expires_at, amountDollars, address ,
                         Open Wallet
                     </a>
                 </div>
-                <div className="text-gray-600 text-sm mb-4 font-semibold">
+                <div className="text-gray-600 text-sm mb-4 mt-4 font-semibold">
                     ⚠️ Keep this page open or return after sending the funds so the system can confirm your order.
                 </div>
             </div>
