@@ -48,7 +48,7 @@ export default function MomPage({telegram_link,groupProductId}) {
                             Contact Support to Buy
                             </a>
                         </div>
-                        <p className=' font-bold mb-2'>Pay on website and automatically get your link to the group (only 25$ group):</p>
+                        <p className=' font-bold mb-2'>Pay on website and automatically get your link to the group :</p>
 
                         <div className="text-center mb-1">
                             <Button onClick={handleBuy}  className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg inline-block">
