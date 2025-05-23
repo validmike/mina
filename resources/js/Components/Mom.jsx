@@ -31,7 +31,7 @@ const Mom = () => {
         </Link>
 
         <div className="flex flex-row sm:flex-col gap-2 w-full">
-          <Link href='/demos/mom' className="bg-gray-200 text-gray-800 py-2 rounded-lg flex-1 flex items-center justify-center gap-2 hover:bg-gray-300">
+          <Link href='/demos?product_id=6' className="bg-gray-200 text-gray-800 py-2 rounded-lg flex-1 flex items-center justify-center gap-2 hover:bg-gray-300">
             <FaEye /> Preview
           </Link>
 

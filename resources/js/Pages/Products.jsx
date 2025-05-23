@@ -41,7 +41,7 @@ export default function Products({ products, telegramPremium }) {
                             ))}
 
                             <div className="mt-2 mb-1">
-                                {/* <Mom /> */}
+                                <Mom />
                             </div>
                             <div className="mt-2 mb-1">
                                 <Group />
