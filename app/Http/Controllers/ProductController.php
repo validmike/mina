@@ -26,8 +26,19 @@ class ProductController extends Controller
     public function group()
     {
         $telegram_link = env("ORDER_GROUP_LINK");
-        $groupProductId = Product::where('is_group', 1)->value('id');
+        $groupProductId = Product::where('is_group', 1)
+        ->where('price', 25)
+        ->value('id');        
         return inertia('Group', compact('telegram_link','groupProductId'));
+    }
+    public function mom()
+    {
+        $telegram_link = env("ORDER_MOM_LINK");
+        $groupProductId = Product::where('is_group', 1)
+        ->where('price', 11.99)
+        ->value('id');
+        return inertia('MomPage', compact('telegram_link','groupProductId'));
+        
     }
 
     /**

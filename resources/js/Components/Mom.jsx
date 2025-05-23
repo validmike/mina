@@ -1,7 +1,7 @@
 import { Link, router } from '@inertiajs/react'
 import { FaShoppingCart, FaEye, FaFileInvoice } from "react-icons/fa";
 
-const Group = () => {
+const Mom = () => {
 
 
   return (
@@ -12,12 +12,11 @@ const Group = () => {
       />
 
       <div className="mt-3">
-        <h3 className="text-lg font-semibold">VIP Group</h3>
-        <p className="text-gray-600 text-sm mt-1">Get Bundle pack plus 500 - 1000 videos in a telegram group that you will be the only member</p>
-        <p className="text-gray-800 font-medium mt-2">Size: 66GB in zip files + 500 - 1000 videos on telegram</p>
+        <h3 className="text-lg font-semibold">Mom and son private group</h3>
+        <p className="text-gray-600 text-sm mt-1">600 videos of mother and sons in a Telegram group created only for you!</p>
+        <p className="text-gray-800 font-medium mt-2">Size:600 videos on telegram</p>
         <p className="text-green-600 mt-1">Delivery: in a Telegram group, YOU CAN WATCH THE VIDEOS ONLINE WITHOUT DOWNLOADING</p>
-        <p className="text-xl font-bold mt-2">$20 or 25$</p>
-        <p className="text-xl font-medium  mt-2"> <span className='text-red-800 font-bold'>DISCOUNT:</span> you can get a $10 discount if you have already purchased a pack.</p>
+        <p className="text-xl font-bold mt-2">11.99$</p>
       </div>
 
       {/* Buttons section */}
@@ -25,14 +24,14 @@ const Group = () => {
         {/* Buy Button - Sends POST request */}
         <Link
           as='button'
-          href='/products/group'
+          href='/products/mom'
           className="bg-blue-600 text-white py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700"
         >
           <FaShoppingCart /> Order NOW
         </Link>
 
         <div className="flex flex-row sm:flex-col gap-2 w-full">
-          <Link href='/demos/group' className="bg-gray-200 text-gray-800 py-2 rounded-lg flex-1 flex items-center justify-center gap-2 hover:bg-gray-300">
+          <Link href='/demos/mom' className="bg-gray-200 text-gray-800 py-2 rounded-lg flex-1 flex items-center justify-center gap-2 hover:bg-gray-300">
             <FaEye /> Preview
           </Link>
 
@@ -45,4 +44,4 @@ const Group = () => {
   );
 };
 
-export default Group;
+export default Mom;

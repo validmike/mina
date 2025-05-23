@@ -16,8 +16,12 @@ class GroupService
         if (!$order) {
             return false;
         }
-    
-        $group = Group::where('is_sold', 0)->first();
+        $product_id = $order->product_id;
+
+        $group = Group::where('is_sold', 0)
+            ->where('product_id', $product_id)
+            ->first();
+        
     
         if (!$group) {
             return false;

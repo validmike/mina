@@ -23,7 +23,7 @@ const PaidOrderGroup = ({ id, number,order }) => {
                 <p>✔ This link can be used only once  </p>
                 <p>✔ Ownership of the group will be transferred to you  upon your joinig</p>
                 <p>✔ You will be left alone on the alone so if you leave it you can NOT come back</p>
-                <p className='text-red-900'>✔ Sharing this group or its media will put your Telegram account at risk of being banned since you will be the owner</p>
+                <p className='text-red-900'>✔ Sharing this group or its media will put your Telegram account at risk of getting banned since you will be the owner</p>
                 <p>✔ Contact support if you need help.</p>
             </div>
 

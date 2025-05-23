@@ -6,54 +6,48 @@ export default function Proofs({ watermark, country }) {
     const sliders = [
         {
             images: [
-                "https://files.catbox.moe/v0d21e.jpg",
-                "https://files.catbox.moe/7pcjok.jpg",
+                "https://files.catbox.moe/sqlezo.jpg",
+                "https://files.catbox.moe/qpxiqb.jpg",
             ],
             watermark: watermark,
         },
         {
             images: [
-                "https://files.catbox.moe/126puh.jpg",
-                "https://files.catbox.moe/7wd8bu.jpg",
+                "https://files.catbox.moe/yqbm5e.jpg",
+                "https://files.catbox.moe/9hce0e.jpg",
             ],
             watermark: watermark,
         },
         {
             images: [
-                "https://files.catbox.moe/lnuscn.jpg",
-                "https://files.catbox.moe/zgji6l.jpg",
+                "https://files.catbox.moe/o9pjyd.jpg",
+                "https://files.catbox.moe/7n32ac.jpg",
             ],
             watermark: watermark,
         },
 
         {
             images: [
-                "https://files.catbox.moe/8uu6jw.jpg",
-                "https://files.catbox.moe/lnila1.jpg",
+                "https://files.catbox.moe/386bls.jpg",
+                "https://files.catbox.moe/aaq4yh.jpg",
             ],
             watermark: watermark,
         },
         {
             images: [
-                "https://files.catbox.moe/c6utw5.jpg",
-                "https://files.catbox.moe/6b51il.jpg",
+                "https://files.catbox.moe/ajm4mg.jpg",
+                "https://files.catbox.moe/4q6c2f.jpg",
             ],
             watermark: watermark,
         },
         {
             images: [
-                "https://files.catbox.moe/kxthgl.jpg",
-                "https://files.catbox.moe/s5wyhp.jpg",
+                "https://files.catbox.moe/zjg04k.jpg",
+                "https://files.catbox.moe/o36tiw.jpg",
             ],
             watermark: watermark,
         },
-        {
-            images: [
-                "https://files.catbox.moe/eivs8x.jpg",
-                "https://files.catbox.moe/ed5980.jpg",
-            ],
-            watermark: watermark,
-        },
+
         {
             images: [
                 "https://files.catbox.moe/6wvnqy.jpg",

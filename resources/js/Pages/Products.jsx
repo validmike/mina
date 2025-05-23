@@ -1,4 +1,5 @@
 import Group from '@/Components/Group';
+import Mom from '@/Components/Mom';
 import ProductCard from '@/Components/ProductCard';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
@@ -40,7 +41,10 @@ export default function Products({ products, telegramPremium }) {
                             ))}
 
                             <div className="mt-2 mb-1">
-                                <Group />
+                                <Mom />
+                            </div>
+                            <div className="mt-2 mb-1">
+                                {/* <Group /> */}
                             </div>
                         </div>
                     </div>
