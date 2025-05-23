@@ -7,7 +7,7 @@ const Mom = () => {
   return (
     <div className="bg-white rounded-2xl shadow-lg p-4 transition-transform hover:scale-105">
       <img
-        src='https://files.catbox.moe/jzmoba.jpg'
+        src='https://files.catbox.moe/y97w0k.jpg'
         className="w-full h-48 object-cover rounded-lg"
       />
 
