@@ -19,11 +19,12 @@ class UserService
             return 0;
         } elseif ($count < 10) {
             return 1;
-        } elseif ($count < 20) {
+        } elseif ($count < 30) {
             return 2;
         } else {
             return 3;
         }
+        
     }
     public function getUserInviteLink(int $userId)
     {
