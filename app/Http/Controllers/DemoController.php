@@ -46,14 +46,14 @@ class DemoController extends Controller
     
     public function video()
     {
-        $userService = new UserService();
-        $user = Auth::user();
+        $userService = app(UserService::class);
+        $user = auth()->user();
+    
         return inertia('Video', [
-            'invites' => $userService->getInviteCount($user->id),
-            'watermark'=> $userService->getUserInviteLink($user->id)
+            'level' => $userService->getUserLevel($user->id),
         ]);
-        
     }
+    
     public function proofs()
     {
         $watermark = env('SHORT_LINK');

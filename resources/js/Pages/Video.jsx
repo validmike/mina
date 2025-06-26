@@ -1,51 +1,45 @@
-import { useState } from 'react';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
-export default function Video({ invites, watermark }) {
-    // Hardcoded video URLs and captions
+export default function Video({ level }) {
     const videos = [
         {
-            url: 'https://files.catbox.moe/buegkb.mp4',
-            caption: 'invite 30 people or buy a pack get the full uncensored video'
+            demoUrl: 'https://files.catbox.moe/wxhyv4.mp4',
+            fullUrl: 'https://files.catbox.moe/ntsm96.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            url: 'https://files.catbox.moe/hltwc0.mp4',
-            caption: 'invite 30 people or buy a pack get the full uncensored video'
+            demoUrl: 'https://files.catbox.moe/x1mop7.mp4',
+            fullUrl: 'https://files.catbox.moe/13a5k5.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            url: 'https://files.catbox.moe/5nvv5a.mp4',
-            caption: 'invite 30 people or buy a pack to get the full uncensored video'
+            demoUrl: 'https://files.catbox.moe/cqgcpk.mp4',
+            fullUrl: 'https://files.catbox.moe/2qw92p.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            url: 'https://files.catbox.moe/l4pai4.mp4',
-            caption: 'invite 30 people or buy a pack to get the full uncensored video'
+            demoUrl: 'https://files.catbox.moe/hdkj6a.mp4',
+            fullUrl: 'https://files.catbox.moe/m26lwt.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            url: 'https://files.catbox.moe/cwi0gd.mp4',
-            caption: 'invite 30 people or buy a pack to get the full uncensored video'
+            demoUrl: 'https://files.catbox.moe/wyl1fq.mp4',
+            fullUrl: 'https://files.catbox.moe/t830ya.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            url: 'https://files.catbox.moe/wh2qd6.mp4',
-            caption: 'invite 30 people or buy a pack to get the full uncensored video'
+            demoUrl: 'https://files.catbox.moe/x6lot9.mp4',
+            fullUrl: 'https://files.catbox.moe/nbbahv.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            url: 'https://files.catbox.moe/llaxru.mp4',
-            caption: 'invite 30 people or buy a pack to get the full uncensored video'
+            demoUrl: 'https://files.catbox.moe/llaxru.mp4',
+            fullUrl: 'https://files.catbox.moe/kwvwbb.mp4',
+            caption: 'Unlock the full content by reaching Level 3.'
         },
-        // Add more videos here if needed
+        // Add more videos as needed
     ];
-
-    // State to track whether the link is copied
-    const [copied, setCopied] = useState(false);
-
-    const handleCopy = () => {
-        const textToCopy = 'https://files.catbox.moe/6g0wz5.zip';
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
-        });
-    };
 
     return (
         <AuthenticatedLayout
@@ -62,31 +56,12 @@ export default function Video({ invites, watermark }) {
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
                             <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6" role="alert">
-                                <p className="font-bold">Warning</p>
-                                <p>Videos will be available to download when you have successfully invited 30 people. Use a VPN if videos are not loading. and be patient for the video to be loaded</p>
+                                <p className="font-bold">Notice</p>
+                                <p>Use a VPN if videos are not loading. Be patient while the videos load.</p>
                             </div>
 
-                            {invites >= 30 && (
-                                <div className="mb-8 p-4 bg-yellow-100 rounded-md flex items-center justify-between">
-                                    <div>
-                                        <p className="text-gray-700">Copy this link and open it with a web browser:</p>
-                                        <a href='https://files.catbox.moe/6g0wz5.zip' className="text-blue-500">
-                                            https://files.catbox.moe/6g0wz5.zip
-                                        </a>
-                                    </div>
-                                    <button
-                                        onClick={handleCopy}
-                                        className="ml-4 px-4 py-2 bg-green-500 text-white font-semibold rounded-md"
-                                    >
-                                        {copied ? 'Copied!' : 'Copy Link'}
-                                    </button>
-                                </div>
-                            )}
-
-                            {/* Videos Section */}
                             {videos.map((video, index) => (
                                 <div key={index} className="mb-8">
-                                    {/* Video Player */}
                                     <div className="relative w-full">
                                         <video 
                                             controls 
@@ -95,15 +70,14 @@ export default function Video({ invites, watermark }) {
                                             onContextMenu={(e) => e.preventDefault()} 
                                             className="w-full rounded-lg"
                                         >
-                                            <source src={video.url} type="video/mp4" />
+                                            <source 
+                                                src={level === 3 ? video.fullUrl : video.demoUrl} 
+                                                type="video/mp4" 
+                                            />
                                             Your browser does not support the video tag.
                                         </video>
-
-                                        {/* Watermark */}
-
                                     </div>
-                                    
-                                    {/* Caption Below the Video */}
+
                                     <div className="text-center mt-4 text-lg font-semibold text-gray-800">
                                         {video.caption}
                                     </div>
