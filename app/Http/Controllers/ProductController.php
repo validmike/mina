@@ -26,18 +26,20 @@ class ProductController extends Controller
     public function group()
     {
         $telegram_link = env("ORDER_GROUP_LINK");
+        $country = auth()->user()->country ?? null;
         $groupProductId = Product::where('is_group', 1)
         ->where('price', 25)
         ->value('id');        
-        return inertia('Group', compact('telegram_link','groupProductId'));
+        return inertia('Group', compact('telegram_link','groupProductId','country'));
     }
     public function mom()
     {
         $telegram_link = env("ORDER_MOM_LINK");
+        $country = auth()->user()->country ?? null;
         $groupProductId = Product::where('is_group', 1)
         ->where('price', 11.99)
         ->value('id');
-        return inertia('MomPage', compact('telegram_link','groupProductId'));
+        return inertia('MomPage', compact('telegram_link','groupProductId','country'));
         
     }
 

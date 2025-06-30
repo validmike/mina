@@ -2,7 +2,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import { useState } from 'react';
 
-export default function Dashboard({telegram_id}) {
+export default function Dashboard({telegram_id , country}) {
     const [isChecked, setIsChecked] = useState([false, false, false]);
 
     const handleCheckboxChange = (index) => {
@@ -35,6 +35,22 @@ export default function Dashboard({telegram_id}) {
                             </p>
 
                             <div className="space-y-4">
+                                {country === 'BR' && (
+                                <div
+                                    className={`p-4 border-2 rounded-md ${isChecked[0] ? 'border-blue-500' : 'border-gray-300'}`}
+                                >
+                                    <label className="flex items-center space-x-2">
+                                        <input
+                                            type="checkbox"
+                                            checked={isChecked[0]}
+                                            onChange={() => handleCheckboxChange(0)}
+                                            className="form-checkbox h-5 w-5 text-blue-500"
+                                        />
+                                        <span className="text-sm">Atenção brasileiros: Muitas mensagens e comprovantes falsos têm sido enviados por usuários do Brasil. Leia as regras antes de entrar em contato, ou você será bloqueado e denunciado como spam.
+                                        NÃO! PIX NÃO É ACEITO. FALE EM INGLÊS!</span>
+                                    </label>
+                                </div>
+                                )}
                                 <div
                                     className={`p-4 border-2 rounded-md ${isChecked[0] ? 'border-blue-500' : 'border-gray-300'}`}
                                 >

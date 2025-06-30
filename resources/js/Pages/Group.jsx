@@ -2,7 +2,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Button } from '@headlessui/react';
 import { Head, Link,router } from '@inertiajs/react';
 
-export default function Group({telegram_link,groupProductId}) {
+export default function Group({telegram_link,groupProductId,country}) {
     const handleBuy = () => {
         router.post(route("orders.store"), { product_id: groupProductId });
       };
@@ -43,6 +43,15 @@ export default function Group({telegram_link,groupProductId}) {
 
                         <h3 className="text-xl font-semibold mt-4 mb-2">How to Order:</h3>
                         <p className=' font-bold mb-2'>Contact me on Telegram:</p>
+                            {/* warning for brazil */}
+                            {country === 'BR' && (
+                            <div className="bg-red-100 border mb-2 border-red-400 text-red-700 px-4 py-3 rounded-lg mt-4 text-sm">
+                                <strong className="block font-bold mb-1">Atenção brasileiros:</strong>
+                                <p>Muitas mensagens e comprovantes falsos têm sido enviados por usuários do Brasil.</p>
+                                <p>Leia as regras antes de entrar em contato, ou você será bloqueado e denunciado como spam.</p>
+                                <p className="mt-2 font-semibold">NÃO! PIX NÃO É ACEITO. FALE EM INGLÊS!</p>
+                            </div>
+                            )}
                         
                         <div className="text-center mb-1">
                             <a href={telegram_link} target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg inline-block">

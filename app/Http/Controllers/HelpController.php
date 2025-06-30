@@ -18,7 +18,8 @@ class HelpController extends Controller
     public function contact()
     {
         $telegram_id = env('TELEGRAM_ID');
-        return inertia('Contact',compact('telegram_id'));
+        $country = auth()->user()->country ?? null;
+        return inertia('Contact',compact('telegram_id','country'));
     }
     public function guide()
     {
