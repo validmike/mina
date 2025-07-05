@@ -4,38 +4,38 @@ import { Head } from '@inertiajs/react';
 export default function Video({ level }) {
     const videos = [
         {
-            demoUrl: 'https://files.catbox.moe/wxhyv4.mp4',
-            fullUrl: 'https://files.catbox.moe/ntsm96.mp4',
+            demoUrl: 'https://bibisisi.site/videos/c/1.mp4',
+            fullUrl: 'https://bibisisi.site/videos/1.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            demoUrl: 'https://files.catbox.moe/x1mop7.mp4',
-            fullUrl: 'https://files.catbox.moe/13a5k5.mp4',
+            demoUrl: 'https://bibisisi.site/videos/c/2.mp4',
+            fullUrl: 'https://bibisisi.site/videos/2.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            demoUrl: 'https://files.catbox.moe/cqgcpk.mp4',
-            fullUrl: 'https://files.catbox.moe/2qw92p.mp4',
+            demoUrl: 'https://bibisisi.site/videos/c/3.mp4',
+            fullUrl: 'https://bibisisi.site/videos/3.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            demoUrl: 'https://files.catbox.moe/hdkj6a.mp4',
-            fullUrl: 'https://files.catbox.moe/m26lwt.mp4',
+            demoUrl: 'https://bibisisi.site/videos/c/4.mp4',
+            fullUrl: 'https://bibisisi.site/videos/4.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            demoUrl: 'https://files.catbox.moe/wyl1fq.mp4',
-            fullUrl: 'https://files.catbox.moe/t830ya.mp4',
+            demoUrl: 'https://bibisisi.site/videos/c/5.mp4',
+            fullUrl: 'https://bibisisi.site/videos/5.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            demoUrl: 'https://files.catbox.moe/x6lot9.mp4',
-            fullUrl: 'https://files.catbox.moe/nbbahv.mp4',
+            demoUrl: 'https://bibisisi.site/videos/c/6.mp4',
+            fullUrl: 'https://bibisisi.site/videos/6.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            demoUrl: 'https://files.catbox.moe/llaxru.mp4',
-            fullUrl: 'https://files.catbox.moe/kwvwbb.mp4',
+            demoUrl: 'https://bibisisi.site/videos/c/7.mp4',
+            fullUrl: 'https://bibisisi.site/videos/7.mp4',
             caption: 'Unlock the full content by reaching Level 3.'
         },
         // Add more videos as needed
