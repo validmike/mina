@@ -1,22 +1,19 @@
-import ApplicationLogo from '@/Components/ApplicationLogo';
-import BottomNavbar from '@/Components/BottomNavbar';
-import Dropdown from '@/Components/Dropdown';
-import MessageIcon from '@/Components/MessageIcon';
-import NavLink from '@/Components/NavLink';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import StealthLink from '@/Components/StealthLink';
-import TelegramButton from '@/Components/TelegramButton';
-import { Link, usePage } from '@inertiajs/react';
-import { useState } from 'react';
-import { FaArrowLeft } from 'react-icons/fa'; // Back icon
-
+import ApplicationLogo from "@/Components/ApplicationLogo";
+import BottomNavbar from "@/Components/BottomNavbar";
+import Dropdown from "@/Components/Dropdown";
+import MessageIcon from "@/Components/MessageIcon";
+import NavLink from "@/Components/NavLink";
+import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
+import StealthLink from "@/Components/StealthLink";
+import TelegramButton from "@/Components/TelegramButton";
+import { Link, usePage } from "@inertiajs/react";
+import { useState } from "react";
+import { FaArrowLeft } from "react-icons/fa"; // Back icon
 
 export default function AuthenticatedLayout({ header, children }) {
-
     const user = usePage().props.auth.user;
     const country = usePage().props.auth.country;
     const { env } = usePage().props;
-
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
@@ -28,22 +25,21 @@ export default function AuthenticatedLayout({ header, children }) {
                     <div className="flex h-16 justify-between">
                         <div className="flex">
                             <button
-                                    onClick={() => window.history.back()} // Navigate to the previous page
-                                    className="flex items-center text-gray-700 transition duration-150 ease-in-out"
-                                    >
-                                    <FaArrowLeft className="mr-2" /> {/* Back icon */}
-                                    Back
-                                </button>
-
+                                onClick={() => window.history.back()} // Navigate to the previous page
+                                className="flex items-center text-gray-700 transition duration-150 ease-in-out"
+                            >
+                                <FaArrowLeft className="mr-2" />{" "}
+                                {/* Back icon */}
+                                Back
+                            </button>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
-                                    href={route('home')}
-                                    active={route().current('home')}
+                                    href={route("home")}
+                                    active={route().current("home")}
                                 >
                                     Home
                                 </NavLink>
-
                             </div>
                         </div>
 
@@ -75,9 +71,8 @@ export default function AuthenticatedLayout({ header, children }) {
                                     </Dropdown.Trigger>
 
                                     <Dropdown.Content>
-
                                         <Dropdown.Link
-                                            href={route('logout')}
+                                            href={route("logout")}
                                             method="post"
                                             as="button"
                                         >
@@ -89,21 +84,38 @@ export default function AuthenticatedLayout({ header, children }) {
                         </div>
 
                         <div className="-me-2 flex items-center justify-between sm:hidden">
-
                             <button
-                                onClick={() => setShowingNavigationDropdown((previousState) => !previousState)}
+                                onClick={() =>
+                                    setShowingNavigationDropdown(
+                                        (previousState) => !previousState
+                                    )
+                                }
                                 className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out"
                             >
-                                <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <span className="mr-2 font-medium">MENU</span>
+                                <svg
+                                    className="h-6 w-6"
+                                    stroke="currentColor"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                >
                                     <path
-                                        className={!showingNavigationDropdown ? 'inline-flex' : 'hidden'}
+                                        className={
+                                            !showingNavigationDropdown
+                                                ? "inline-flex"
+                                                : "hidden"
+                                        }
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth="2"
                                         d="M4 6h16M4 12h16M4 18h16"
                                     />
                                     <path
-                                        className={showingNavigationDropdown ? 'inline-flex' : 'hidden'}
+                                        className={
+                                            showingNavigationDropdown
+                                                ? "inline-flex"
+                                                : "hidden"
+                                        }
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth="2"
@@ -111,42 +123,38 @@ export default function AuthenticatedLayout({ header, children }) {
                                     />
                                 </svg>
                             </button>
-                    </div>
+                        </div>
                     </div>
                 </div>
-                
-                
 
                 <div
                     className={
-                        (showingNavigationDropdown ? 'block' : 'hidden') +
-                        ' sm:hidden'
+                        (showingNavigationDropdown ? "block" : "hidden") +
+                        " sm:hidden"
                     }
                 >
                     <div className="space-y-1 pb-3 pt-2">
-                        
-
                         <ResponsiveNavLink
-                            href={route('home')}
-                            active={route().current('home')}
+                            href={route("home")}
+                            active={route().current("home")}
                         >
                             Home
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
-                            href={route('orders.index')}
-                            active={route().current('orders.index')}
+                            href={route("orders.index")}
+                            active={route().current("orders.index")}
                         >
                             Orders
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
-                            href={route('help.guide')}
-                            active={route().current('help.guide')}
+                            href={route("help.guide")}
+                            active={route().current("help.guide")}
                         >
                             Payment guide
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
-                            href={route('trade')}
-                            active={route().current('trade')}
+                            href={route("trade")}
+                            active={route().current("trade")}
                         >
                             Trading
                         </ResponsiveNavLink>
@@ -163,10 +171,9 @@ export default function AuthenticatedLayout({ header, children }) {
                         </div>
 
                         <div className="mt-3 space-y-1">
-
                             <ResponsiveNavLink
                                 method="post"
-                                href={route('logout')}
+                                href={route("logout")}
                                 as="button"
                             >
                                 Log Out
@@ -184,8 +191,8 @@ export default function AuthenticatedLayout({ header, children }) {
                 </header>
             )}
 
-            <main className=' mb-16'>{children}</main>
-            <div className='relative z-10'>
+            <main className=" mb-16">{children}</main>
+            <div className="relative z-10">
                 <BottomNavbar />
             </div>
             <div>
@@ -195,8 +202,6 @@ export default function AuthenticatedLayout({ header, children }) {
                 )} */}
             </div>
             <MessageIcon></MessageIcon>
-
-
         </div>
     );
 }
