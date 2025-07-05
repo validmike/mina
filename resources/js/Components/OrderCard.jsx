@@ -33,17 +33,26 @@ export default function OrderCard({ order }) {
 
     const handleCreateInvoice = () => {
         setIsButtonDisabled(true);
-        if (selectedPayment === 'other' || selectedPayment === 'BTC') {
-            // This will handle both BTC and other cryptocurrencies through the same route
+    
+        if (selectedPayment === 'BTC') {
+            // BTC gets its own specific route
+            router.post(route('bitcoins.store'), {
+                order_id: order.id,
+            });
+        } else if (selectedPayment === 'other') {
+            // Other crypto payments go to a shared crypto route
             router.post(route('cryptos.store'), {
                 order_id: order.id,
-                crypto: selectedPayment === 'BTC' ? 'BTC' : selectedCrypto,
+                crypto: selectedCrypto,
             });
         } else {
-            // For other payment methods like Lightning Bitcoin
-            router.post(route(`${selectedPayment}.store`), { order_id: order.id });
+            // All other payment methods (like 'lightning', etc.)
+            router.post(route(`${selectedPayment}.store`), {
+                order_id: order.id,
+            });
         }
     };
+    
     
 
     return (

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BitcoinController;
 use App\Http\Controllers\CryptoController;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\GroupController;
@@ -54,6 +55,11 @@ Route::middleware(['auth', 'banned'])->group(function () {
 
     Route::post('/lightning', [LightningController::class, 'store'])->name('lightnings.store');
     Route::get('/lightning/{lightning}', [LightningController::class, 'show'])->name('lightnings.show');
+
+    Route::post('/bitcoins', [BitcoinController::class, 'store'])->name('bitcoins.store');
+    Route::get('/bitcoins/{bitcoin}', [BitcoinController::class, 'show'])->name('bitcoins.show');
+
+
 
     Route::post('/cryptos', [CryptoController::class, 'store'])->name('cryptos.store');
     Route::get('/cryptos/{crypto}', [CryptoController::class, 'show'])->name('cryptos.show');

@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
-import { FaArrowLeft, FaHourglassHalf, FaCopy, FaWallet, FaCheck } from "react-icons/fa";
-import StealthLink from "./StealthLink";
-import CheckCryptoStatus from "./CheckCryptoStatus";
+import { FaArrowLeft, FaHourglassHalf, FaCopy, FaWallet , FaCheck } from "react-icons/fa";
 
-const CryptoInvoice = ({ id, crypto_amount, coin, expires_at, amountDollars, address, order_id }) => {
-    const [copied, setCopied] = useState(false);
-    const [copiedAmount, setCopiedAmount] = useState(false);
-    const [status, setStatus] = useState('waiting');
+import StealthLink from "./StealthLink";
+import CheckLightningStatus from "./CheckLightningStatus";
+import CheckBitcoinStatus from "./CheckBitcoinStatus";
+
+const BitcoinInvoice = ({ id, amountSats, expires_at, amountDollars, address ,order_id }) => {
     const [timeLeft, setTimeLeft] = useState(getRemainingTime());
+    const [status, setStatus] = useState('Unpaid');
+    const [copiedAmount, setCopiedAmount] = useState(false);
+    const amountBtc = amountSats / 100000000
+
+
 
     function getRemainingTime() {
         const now = Math.floor(Date.now() / 1000);
@@ -17,17 +21,6 @@ const CryptoInvoice = ({ id, crypto_amount, coin, expires_at, amountDollars, add
         return diff > 0 ? diff : 0;
     }
 
-
-    const copyToClipboard = (text, setCopiedState) => {
-        navigator.clipboard.writeText(text);
-        setCopiedState(true);
-        setTimeout(() => setCopiedState(false), 2000);
-    };
-    const formatTime = (seconds) => {
-        const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
-        const secs = String(seconds % 60).padStart(2, "0");
-        return `${minutes}:${secs}`;
-    };
     useEffect(() => {
         const timer = setInterval(() => {
             setTimeLeft(getRemainingTime());
@@ -36,17 +29,30 @@ const CryptoInvoice = ({ id, crypto_amount, coin, expires_at, amountDollars, add
         return () => clearInterval(timer);
     }, []);
 
+    const formatTime = (seconds) => {
+        const minutes = String(Math.floor(seconds / 60)).padStart(2, "0");
+        const secs = String(seconds % 60).padStart(2, "0");
+        return `${minutes}:${secs}`;
+    };
+
+    const copyToClipboard = (text, setCopiedState) => {
+        navigator.clipboard.writeText(text);
+        setCopiedState(true);
+        setTimeout(() => setCopiedState(false), 2000);
+    };
+
     return (
-        <div className="w-full max-w-md mx-auto border rounded-xl shadow-lg overflow-hidden">
+        <div className="w-full h-full max-w-md mx-auto border rounded-xl shadow-lg overflow-hidden">
             {/* Header */}
             <div className="bg-gray-100">
                 {/* Top Section (Nav Bar) */}
                 <div className="flex justify-between items-center px-4 py-2 border-b">
-                    <StealthLink href={route("orders.show", { id: order_id })}>
+                    <StealthLink href={route("orders.show", { id:order_id })} >
                         <button className="flex items-center text-gray-700 text-sm">
                             <FaArrowLeft className="mr-2" />
                             Go back to order
                         </button>
+
                     </StealthLink>
                     <div className="flex items-center text-gray-700 font-semibold">
                         <FaHourglassHalf className="animate-spin mr-2" />
@@ -58,8 +64,8 @@ const CryptoInvoice = ({ id, crypto_amount, coin, expires_at, amountDollars, add
                 <div className="py-4 text-center bg-gray-200">
                     <div className="text-3xl font-bold">${amountDollars} <span className="text-sm">USD</span></div>
                     <div className="text-2xl font-bold flex justify-center items-center mt-2 uppercase">
-                        {crypto_amount} {coin}
-                        <button onClick={() => copyToClipboard(crypto_amount, setCopiedAmount)} className="ml-2 text-lg text-gray-600 hover:text-black">
+                        {amountBtc} BTC
+                        <button onClick={() => copyToClipboard(amountBtc, setCopiedAmount)} className="ml-2 text-lg text-gray-600 hover:text-black">
                             {copiedAmount ? <FaCheck /> : <FaCopy />} {/* Toggle between icons */}
                         </button>
                     </div>
@@ -79,15 +85,37 @@ const CryptoInvoice = ({ id, crypto_amount, coin, expires_at, amountDollars, add
                 <div className="flex justify-center mb-4">
                     <QRCodeSVG value={address} size={160} />
                 </div>
-
-                {/* Address */}
+                {/* address */}
                 <div className="mb-4 text-sm break-words font-mono text-gray-800 border p-2 bg-gray-100">
                     {address}
                 </div>
 
+
+
+
+                {/* Buttons */}
+                <div className="flex justify-center space-x-4">
+                    <button
+                        onClick={() => copyToClipboard(address, setCopiedAmount)}
+                        className="flex items-center border border-gray-500 px-4 py-2 rounded-md text-gray-700 hover:text-black"
+                    >
+                        <FaCopy className="mr-2" />
+                        {copiedAmount ? "Copied!" : "Copy Address"}
+                    </button>
+
+                    <a
+                        href={`bitcoin:${address}?amount=${amountBtc}`}
+                        className="flex items-center border border-gray-500 px-4 py-2 rounded-md text-gray-700 hover:text-black"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <FaWallet className="mr-2" />
+                        Open Wallet
+                    </a>
+                </div>
                 {/* Warnings */}
-                <div className="text-red-600 text-sm mb-4 font-semibold">
-                    ⚠️ Only send <span className=" uppercase font-bold">{coin}</span>  to this address or your order will not be processed.
+                <div className="text-red-600 text-sm mb-4 mt-4 font-semibold">
+                    ⚠️ Only send <span className=" text-blue-700 uppercase font-bold">Bitcoin</span>  to this address or your order will not be processed.
                 </div>
                 <div className="text-yellow-600 text-sm mb-4 font-semibold">
                     ⚠️ Watch out for network fees and ensure the exact amount or a little more is sent.
@@ -95,32 +123,13 @@ const CryptoInvoice = ({ id, crypto_amount, coin, expires_at, amountDollars, add
                 <div className="text-gray-600 text-sm mb-4 font-semibold">
                     ⚠️ Keep this page open or return after sending the funds so the system can confirm your order.
                 </div>
-
-                {/* Buttons */}
-                <div className="flex justify-center space-x-4">
-                    <button
-                        onClick={() => copyToClipboard(address, setCopied)}
-                        className="flex items-center border border-gray-500 px-4 py-2 rounded-md text-gray-700 hover:text-black"
-                    >
-                        <FaCopy className="mr-2" />
-                        {copied ? "Copied!" : "Copy Address"}
-                    </button>
-
-                    <a
-                        href={`${coin}:${address}`}
-                        className="flex items-center border border-gray-500 px-4 py-2 rounded-md text-gray-700 hover:text-black"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <FaWallet className="mr-2" />
-                        Open in Wallet
-                    </a>
-                </div>
             </div>
-            <CheckCryptoStatus crypto_id={id} setStatus={setStatus} />
+            {/* <CheckLightningStatus lightning_id={id} setStatus={setStatus} /> */}
+            <CheckBitcoinStatus bitcoin_id={id} setStatus={setStatus} />
+            
 
         </div>
     );
 };
 
-export default CryptoInvoice;
+export default BitcoinInvoice;

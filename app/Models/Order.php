@@ -34,6 +34,10 @@ class Order extends Model
     {
         return $this->hasMany(Lightning::class);
     }
+    public function bitcoins()
+    {
+        return $this->hasMany(Bitcoin::class);
+    }
     public function cryptos()
     {
         return $this->hasMany(Crypto::class);
