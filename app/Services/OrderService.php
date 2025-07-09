@@ -73,10 +73,20 @@ class OrderService
                 'id' => $crypto->id,
                 'created_at' => $crypto->created_at,
             ]);
+        $bitcoins = $order->bitcoins()->get(['id', 'status', 'created_at'])
+            ->map(fn($bitcoin) => [
+                'coin' => 'BTC onchain',
+                'status' => $bitcoin->status,
+                'id' => $bitcoin->id,
+                'created_at' => $bitcoin->created_at,
+            ]);
     
         // Ensure both are collections, then merge and sort
-        $mergedPayments = collect($lightnings)->merge($cryptos)->sortBy('created_at');
-    
+        $mergedPayments = collect($lightnings)
+        ->merge($cryptos)
+        ->merge($bitcoins)
+        ->sortBy('created_at');
+        
         return $mergedPayments->values()->toArray(); // Ensure it's a clean indexed array
     }
     public function createLink(Order $order)

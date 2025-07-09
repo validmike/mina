@@ -10,10 +10,12 @@ const PaymentList = ({ payments }) => {
                 // Reverse the array to show the most recent first
                 payments.reverse().map((payment) => {
                     // Dynamically set the link based on the coin type
-                    const link = payment.coin === 'lightning btc' 
-                        ? `/lightning/${payment.id}` 
-                        : `/cryptos/${payment.id}`;
-
+                    const link = payment.coin === 'lightning btc'
+                    ? `/lightning/${payment.id}`
+                    : payment.coin === 'BTC onchain'
+                    ? `/bitcoins/${payment.id}`
+                    : `/cryptos/${payment.id}`;
+                
                     return (
                         <div key={payment.id} className="mb-4 p-4 border border-gray-300 rounded-lg bg-gray-50">
                             <div className="mb-2">
