@@ -9,7 +9,7 @@ export default function Rewarble() {
             </p>
 
             <a
-                href="https://driffle.com/gift-me-crypto-25-eur-gift-card-global-digital-key-p9925699"
+                href="https://www.g2a.com/rewarble-super-gift-card-10-eur-by-rewarble-key-global-i10000506957002"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline flex items-center gap-1"
