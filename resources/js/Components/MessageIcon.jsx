@@ -7,7 +7,7 @@ export default function MessageIcon() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="fixed bottom-16 left-1 flex flex-col items-start">
+        <div className="fixed bottom-16 left-1 flex flex-col items-start message-icon">
             {/* Message Box */}
             {isOpen && (
                 <motion.div 

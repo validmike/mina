@@ -54,13 +54,13 @@ export default function OrderCard({ order }) {
     };
 
     return (
-        <div className="p-6 bg-white rounded-lg shadow-md">
+        <div className="p-2 bg-white rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4">
                 Order #{order.number}
             </h2>
 
-            <p className="text-gray-700 font-medium mb-3">
-                💳 Choose Your Payment Option
+            <p className="text-gray-700 font-bold text-lg mb-3">
+                💳 Choose Your Payment Option:
             </p>
 
             <div className="space-y-4">

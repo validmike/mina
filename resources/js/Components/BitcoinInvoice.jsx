@@ -22,7 +22,7 @@ const BitcoinInvoice = ({
     order_id,
 }) => {
     const [timeLeft, setTimeLeft] = useState(getRemainingTime());
-    const [status, setStatus] = useState("Unpaid");
+    const [status, setStatus] = useState("updating...");
     const [copiedAmount, setCopiedAmount] = useState(false);
     const amountBtc = amountSats / 100000000;
 

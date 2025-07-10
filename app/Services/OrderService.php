@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Helpers\Helper;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 
@@ -58,27 +59,30 @@ class OrderService
 
     public function getOrderPayments(Order $order): array
     {
-        $lightnings = $order->lightnings()->get(['id', 'status', 'created_at'])
+        $lightnings = $order->lightnings()->get(['id', 'status', 'created_at','address'])
             ->map(fn($lightning) => [
                 'coin' => 'lightning btc',
                 'status' => $lightning->status,
                 'id' => $lightning->id,
-                'created_at' => $lightning->created_at,
+                'address' =>$lightning->address ,
+                'created_at' =>$lightning->created_at->diffForHumans() ,
             ]);
     
-        $cryptos = $order->cryptos()->get(['id', 'status', 'coin', 'created_at'])
+        $cryptos = $order->cryptos()->get(['id', 'status', 'coin', 'created_at','address'])
             ->map(fn($crypto) => [
                 'coin' => $crypto->coin,
                 'status' => $crypto->status,
                 'id' => $crypto->id,
-                'created_at' => $crypto->created_at,
+                'address' =>$crypto->address ,
+                'created_at' =>$crypto->created_at->diffForHumans() ,
             ]);
-        $bitcoins = $order->bitcoins()->get(['id', 'status', 'created_at'])
+        $bitcoins = $order->bitcoins()->get(['id', 'status', 'created_at','address'])
             ->map(fn($bitcoin) => [
                 'coin' => 'BTC onchain',
                 'status' => $bitcoin->status,
                 'id' => $bitcoin->id,
-                'created_at' => $bitcoin->created_at,
+                'address' =>$bitcoin->address ,
+                'created_at' =>$bitcoin->created_at->diffForHumans() ,
             ]);
     
         // Ensure both are collections, then merge and sort
