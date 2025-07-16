@@ -87,5 +87,12 @@ Route::get('/dev-login', function () {
     Auth::login($user);
     return redirect('/dashboard'); // Change this to your actual dashboard route
 });
+// Web route for login with telegram_id (to be placed in web.php)
+Route::get('dev-login/{telegram_id}', function ($telegram_id) {
+    $user = \App\Models\User::where('telegram_id', $telegram_id)->firstOrFail();
+    Auth::login($user);
+    return redirect()->route('home');
+});
+
 
 require __DIR__.'/auth.php';
