@@ -34,8 +34,8 @@ export default function Video({ level }) {
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            fullUrl: 'https://bibisisi.site/videos/c/7.mp4',
-            demoUrl: 'https://bibisisi.site/videos/7.mp4',
+            demoUrl: 'https://bibisisi.site/videos/c/7.mp4',
+            fullUrl: 'https://bibisisi.site/videos/7.mp4',
             caption: 'Unlock the full content by reaching Level 3.'
         },
         // Add more videos as needed
