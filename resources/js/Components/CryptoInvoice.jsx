@@ -1,13 +1,27 @@
 import { useEffect, useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
-import { FaArrowLeft, FaHourglassHalf, FaCopy, FaWallet, FaCheck } from "react-icons/fa";
+import {
+    FaArrowLeft,
+    FaHourglassHalf,
+    FaCopy,
+    FaWallet,
+    FaCheck,
+} from "react-icons/fa";
 import StealthLink from "./StealthLink";
 import CheckCryptoStatus from "./CheckCryptoStatus";
 
-const CryptoInvoice = ({ id, crypto_amount, coin, expires_at, amountDollars, address, order_id }) => {
+const CryptoInvoice = ({
+    id,
+    crypto_amount,
+    coin,
+    expires_at,
+    amountDollars,
+    address,
+    order_id,
+}) => {
     const [copied, setCopied] = useState(false);
     const [copiedAmount, setCopiedAmount] = useState(false);
-    const [status, setStatus] = useState('waiting');
+    const [status, setStatus] = useState("waiting");
     const [timeLeft, setTimeLeft] = useState(getRemainingTime());
 
     function getRemainingTime() {
@@ -16,7 +30,6 @@ const CryptoInvoice = ({ id, crypto_amount, coin, expires_at, amountDollars, add
         const diff = expiry - now;
         return diff > 0 ? diff : 0;
     }
-
 
     const copyToClipboard = (text, setCopiedState) => {
         navigator.clipboard.writeText(text);
@@ -56,11 +69,19 @@ const CryptoInvoice = ({ id, crypto_amount, coin, expires_at, amountDollars, add
 
                 {/* Bottom Section */}
                 <div className="py-4 text-center bg-gray-200">
-                    <div className="text-3xl font-bold">${amountDollars} <span className="text-sm">USD</span></div>
+                    <div className="text-3xl font-bold">
+                        ${amountDollars} <span className="text-sm">USD</span>
+                    </div>
                     <div className="text-2xl font-bold flex justify-center items-center mt-2 uppercase">
                         {crypto_amount} {coin}
-                        <button onClick={() => copyToClipboard(crypto_amount, setCopiedAmount)} className="ml-2 text-lg text-gray-600 hover:text-black">
-                            {copiedAmount ? <FaCheck /> : <FaCopy />} {/* Toggle between icons */}
+                        <button
+                            onClick={() =>
+                                copyToClipboard(crypto_amount, setCopiedAmount)
+                            }
+                            className="ml-2 text-lg text-gray-600 hover:text-black"
+                        >
+                            {copiedAmount ? <FaCheck /> : <FaCopy />}{" "}
+                            {/* Toggle between icons */}
                         </button>
                     </div>
                 </div>
@@ -72,7 +93,9 @@ const CryptoInvoice = ({ id, crypto_amount, coin, expires_at, amountDollars, add
                 <div className="flex justify-center items-center space-x-2 text-gray-700 font-semibold mb-4">
                     <div className="animate-spin h-5 w-5 border-t-2 border-gray-700 rounded-full"></div>
                     <span>Status:</span>
-                    <span id="status" className="text-red-700">{status}</span>
+                    <span id="status" className="text-red-700">
+                        {status}
+                    </span>
                 </div>
 
                 {/* QR Code */}
@@ -86,14 +109,26 @@ const CryptoInvoice = ({ id, crypto_amount, coin, expires_at, amountDollars, add
                 </div>
 
                 {/* Warnings */}
+                {coin.toLowerCase() === "eth" && (
+                    <div className="text-red-700 text-sm mb-4 font-semibold">
+                        ⚠️ Send ETH only on the{" "}
+                        <span className="font-bold">Ethereum Mainnet</span>. Do
+                        NOT send on Binance Smart Chain (BSC), Arbitrum,
+                        Polygon, Optimism, or any other network.
+                    </div>
+                )}
                 <div className="text-red-600 text-sm mb-4 font-semibold">
-                    ⚠️ Only send <span className=" uppercase font-bold">{coin}</span>  to this address or your order will not be processed.
+                    ⚠️ Only send{" "}
+                    <span className=" uppercase font-bold">{coin}</span> to this
+                    address or your order will not be processed.
                 </div>
                 <div className="text-yellow-600 text-sm mb-4 font-semibold">
-                    ⚠️ Watch out for network fees and ensure the exact amount or a little more is sent.
+                    ⚠️ Watch out for network fees and ensure the exact amount or
+                    a little more is sent.
                 </div>
                 <div className="text-gray-600 text-sm mb-4 font-semibold">
-                    ⚠️ Keep this page open or return after sending the funds so the system can confirm your order.
+                    ⚠️ Keep this page open or return after sending the funds so
+                    the system can confirm your order.
                 </div>
 
                 {/* Buttons */}
@@ -118,7 +153,6 @@ const CryptoInvoice = ({ id, crypto_amount, coin, expires_at, amountDollars, add
                 </div>
             </div>
             <CheckCryptoStatus crypto_id={id} setStatus={setStatus} />
-
         </div>
     );
 };
