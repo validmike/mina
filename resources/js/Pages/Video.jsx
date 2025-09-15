@@ -4,18 +4,18 @@ import { Head } from '@inertiajs/react';
 export default function Video({ level }) {
     const videos = [
         {
-            fullUrl: 'https://files.catbox.moe/qrnq5i.mp4',
-            demoUrl: 'https://files.catbox.moe/mlfykt.mp4',
+            fullUrl: 'https://files.catbox.moe/h7if7t.mp4',
+            demoUrl: 'https://files.catbox.moe/llaxru.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            fullUrl: 'https://files.catbox.moe/mok5ia.mp4',
-            demoUrl: 'https://files.catbox.moe/15iwg0.mp4',
+            fullUrl: 'https://files.catbox.moe/txifmk.mp4',
+            demoUrl: 'https://files.catbox.moe/6ehhm0.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            fullUrl: 'https://files.catbox.moe/pida8b.mp4',
-            demoUrl: 'https://files.catbox.moe/wipob3.mp4',
+            fullUrl: 'https://files.catbox.moe/1jl02h.mp4',
+            demoUrl: 'https://files.catbox.moe/1r3uw8.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
@@ -24,18 +24,23 @@ export default function Video({ level }) {
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            fullUrl: 'https://files.catbox.moe/gsqzsh.mp4',
-            demoUrl: 'https://files.catbox.moe/yoe8s2.mp4',
+            fullUrl: 'https://files.catbox.moe/d0pi13.mp4',
+            demoUrl: 'https://files.catbox.moe/rdukui.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            fullUrl: 'https://files.catbox.moe/o4mdt5.mp4',
-            demoUrl: 'https://files.catbox.moe/xmgin0.mp4',
+            fullUrl: 'https://files.catbox.moe/ju366v.mp4',
+            demoUrl: 'https://files.catbox.moe/5j8mlh.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            demoUrl: 'https://bibisisi.site/videos/c/7.mp4',
-            fullUrl: 'https://bibisisi.site/videos/7.mp4',
+            demoUrl: 'https://files.catbox.moe/dbn9mg.mp4',
+            fullUrl: 'https://files.catbox.moe/6b50mv.mp4',
+            caption: 'Unlock the full content by reaching Level 3.'
+        },
+        {
+            demoUrl: 'https://files.catbox.moe/8xwita.mp4',
+            fullUrl: 'https://files.catbox.moe/lzvvbb.mp4',
             caption: 'Unlock the full content by reaching Level 3.'
         },
         // Add more videos as needed
