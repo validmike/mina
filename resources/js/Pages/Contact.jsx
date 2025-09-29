@@ -101,7 +101,7 @@ export default function Dashboard({ telegram_id, country }) {
 
                             <div className="mt-6 text-center">
                                 <p className="mb-2 text-sm font-medium">
-                                    Write <code>i read the rules</code> below:
+                                    Write "<code>I read the rules</code>" below:
                                 </p>
                                 <input
                                     type="text"
