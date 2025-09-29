@@ -2,8 +2,9 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import { useState } from 'react';
 
-export default function Dashboard({telegram_id , country}) {
+export default function Dashboard({ telegram_id, country }) {
     const [isChecked, setIsChecked] = useState([false, false, false]);
+    const [confirmationText, setConfirmationText] = useState('');
 
     const handleCheckboxChange = (index) => {
         const newChecked = [...isChecked];
@@ -12,6 +13,9 @@ export default function Dashboard({telegram_id , country}) {
     };
 
     const allChecked = isChecked.every((checked) => checked);
+    // accept "i read the rules" in any case
+    const correctText = confirmationText.trim().toLowerCase() === 'i read the rules';
+    const canContact = allChecked && correctText;
 
     return (
         <AuthenticatedLayout
@@ -36,20 +40,21 @@ export default function Dashboard({telegram_id , country}) {
 
                             <div className="space-y-4">
                                 {country === 'BR' && (
-                                <div
-                                    className={`p-4 border-2 rounded-md ${isChecked[0] ? 'border-blue-500' : 'border-gray-300'}`}
-                                >
-                                    <label className="flex items-center space-x-2">
-                                        <input
-                                            type="checkbox"
-                                            checked={isChecked[0]}
-                                            onChange={() => handleCheckboxChange(0)}
-                                            className="form-checkbox h-5 w-5 text-blue-500"
-                                        />
-                                        <span className="text-sm">Atenção brasileiros: Muitas mensagens e comprovantes falsos têm sido enviados por usuários do Brasil. Leia as regras antes de entrar em contato, ou você será bloqueado e denunciado como spam.
-                                        NÃO! PIX NÃO É ACEITO. FALE EM INGLÊS!</span>
-                                    </label>
-                                </div>
+                                    <div
+                                        className={`p-4 border-2 rounded-md ${isChecked[0] ? 'border-blue-500' : 'border-gray-300'}`}
+                                    >
+                                        <label className="flex items-center space-x-2">
+                                            <input
+                                                type="checkbox"
+                                                checked={isChecked[0]}
+                                                onChange={() => handleCheckboxChange(0)}
+                                                className="form-checkbox h-5 w-5 text-blue-500"
+                                            />
+                                            <span className="text-sm">
+                                                Atenção brasileiros: Muitas mensagens e comprovantes falsos têm sido enviados por usuários do Brasil. Leia as regras antes de entrar em contato, ou você será bloqueado e denunciado como spam. NÃO! PIX NÃO É ACEITO. FALE EM INGLÊS!
+                                            </span>
+                                        </label>
+                                    </div>
                                 )}
                                 <div
                                     className={`p-4 border-2 rounded-md ${isChecked[0] ? 'border-blue-500' : 'border-gray-300'}`}
@@ -95,11 +100,21 @@ export default function Dashboard({telegram_id , country}) {
                             </div>
 
                             <div className="mt-6 text-center">
+                                <p className="mb-2 text-sm font-medium">
+                                    Write <code>i read the rules</code> below:
+                                </p>
+                                <input
+                                    type="text"
+                                    value={confirmationText}
+                                    onChange={(e) => setConfirmationText(e.target.value)}
+                                    className="border rounded-md px-3 py-2 w-full max-w-md mx-auto mb-4 focus:outline-none focus:ring focus:border-blue-300"
+                                    placeholder="Type here..."
+                                />
                                 <button
-                                    disabled={!allChecked}
-                                    className={`px-6 py-2 rounded-md text-white ${allChecked ? 'bg-blue-500 hover:bg-blue-700' : 'bg-gray-300 cursor-not-allowed'}`}
+                                    disabled={!canContact}
+                                    className={`px-6 py-2 rounded-md text-white ${canContact ? 'bg-blue-500 hover:bg-blue-700' : 'bg-gray-300 cursor-not-allowed'}`}
                                     onClick={() => window.location.href = `https://t.me/${telegram_id}`}
-                                    >
+                                >
                                     Contact on Telegram
                                 </button>
                             </div>
