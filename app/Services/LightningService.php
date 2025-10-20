@@ -61,7 +61,7 @@ class LightningService
 
 
         } catch (\Exception $e) {
-            dd($e->getMessage());
+            // dd($e->getMessage());
             Log::error('Error creating lightning invoice: ' . $e->getMessage());
             return ['success' => false, 'message' => 'Error creating lightning invoice.'];
 
