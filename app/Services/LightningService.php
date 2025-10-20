@@ -45,6 +45,7 @@ class LightningService
             ]);
 
             $body = json_decode($response->getBody(), true);
+            // dd($body);
 
             // Save the response to the database
             $new_lightning = Lightning::create([
