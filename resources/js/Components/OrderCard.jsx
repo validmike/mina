@@ -53,7 +53,7 @@ export default function OrderCard({ order }) {
     return (
         <div className="p-2 bg-white rounded-lg shadow-md">
             {/* ⚠️ Bitcoin Payment Warning */}
-            <div className="bg-red-100 border border-red-400 text-red-700 p-3 rounded-md mb-4 flex items-start gap-2">
+            {/* <div className="bg-red-100 border border-red-400 text-red-700 p-3 rounded-md mb-4 flex items-start gap-2">
                 <FaExclamationTriangle className="text-red-600 mt-1 text-lg" />
                 <p className="text-sm font-semibold leading-relaxed">
                     ⚠️ <span className="font-bold">Bitcoin Payment Issues:</span> We are currently
@@ -67,7 +67,7 @@ export default function OrderCard({ order }) {
                     </span>
                 </p>
 
-            </div>
+            </div> */}
 
             <h2 className="text-xl font-semibold mb-4">Order #{order.number}</h2>
 
