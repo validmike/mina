@@ -1,0 +1,42 @@
+            <div className="relative bg-red-600 text-white overflow-hidden">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2">
+                    <div className="flex items-center gap-3">
+                    <span className="inline-flex items-center rounded-sm bg-white/20 px-2 py-0.5 text-xs font-extrabold tracking-wider">
+                        NOTICE
+                    </span>
+
+                    {/* Seamless ticker */}
+                    <div className="relative flex-1 overflow-hidden">
+                        <div className="ticker-track will-change-transform">
+                        <span className="ticker-text px-8">
+                            We’re experiencing a temporary issue displaying demo images and videos. If some media doesn’t appear, please check back later. Thank you for your patience.
+                        </span>
+                        {/* duplicate once for seamless wrap */}
+                        <span className="ticker-text px-8" aria-hidden="true">
+                            We’re experiencing a temporary issue displaying demo images and videos. If some media doesn’t appear, please check back later. Thank you for your patience.
+                        </span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <style>{`
+                    /* One continuous lane that loops without gaps */
+                    .ticker-track {
+                    display: inline-flex;
+                    white-space: nowrap;
+                    min-width: 200%;
+                    animation: tickerMove 28s linear infinite;
+                    }
+                    .ticker-text {
+                    display: inline-block;
+                    /* Each copy takes half of the lane, making the loop seamless */
+                    width: 50%;
+                    font-weight: 600;
+                    }
+                    @keyframes tickerMove {
+                    0%   { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                    }
+                `}</style>
+            </div>
