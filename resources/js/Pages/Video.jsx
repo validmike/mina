@@ -9,38 +9,38 @@ export default function Video({ level }) {
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            fullUrl: 'https://files.catbox.moe/txifmk.mp4',
-            demoUrl: 'https://files.catbox.moe/6ehhm0.mp4',
+            fullUrl: 'https://files.catbox.moe/0t30gy.mp4',
+            demoUrl: 'https://files.catbox.moe/jdeueb.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            fullUrl: 'https://files.catbox.moe/1jl02h.mp4',
-            demoUrl: 'https://files.catbox.moe/1r3uw8.mp4',
+            fullUrl: 'https://files.catbox.moe/pg1no1.mp4',
+            demoUrl: 'https://files.catbox.moe/gi20fe.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            fullUrl: 'https://files.catbox.moe/btrvro.mp4',
-            demoUrl: 'https://files.catbox.moe/i2y5bm.mp4',
+            fullUrl: 'https://files.catbox.moe/trx2nk.mp4',
+            demoUrl: 'https://files.catbox.moe/vjulzp.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            fullUrl: 'https://files.catbox.moe/d0pi13.mp4',
-            demoUrl: 'https://files.catbox.moe/rdukui.mp4',
+            fullUrl: 'https://files.catbox.moe/92g6h0.mp4',
+            demoUrl: 'https://files.catbox.moe/hba7b9.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            fullUrl: 'https://files.catbox.moe/ju366v.mp4',
-            demoUrl: 'https://files.catbox.moe/5j8mlh.mp4',
+            fullUrl: 'https://files.catbox.moe/83kuse.mp4',
+            demoUrl: 'https://files.catbox.moe/x89yvc.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            demoUrl: 'https://files.catbox.moe/dbn9mg.mp4',
-            fullUrl: 'https://files.catbox.moe/6b50mv.mp4',
+            demoUrl: 'https://files.catbox.moe/enohdg.mp4',
+            fullUrl: 'https://files.catbox.moe/4ynq64.mp4',
             caption: 'Unlock the full content by reaching Level 3.'
         },
         {
-            demoUrl: 'https://files.catbox.moe/8xwita.mp4',
-            fullUrl: 'https://files.catbox.moe/lzvvbb.mp4',
+            demoUrl: 'https://files.catbox.moe/4tb7vl.mp4',
+            fullUrl: 'https://files.catbox.moe/mk7wi7.mp4',
             caption: 'Unlock the full content by reaching Level 3.'
         },
         // Add more videos as needed
