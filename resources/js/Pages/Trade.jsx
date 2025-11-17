@@ -80,7 +80,7 @@ export default function Trade({ trading, trader_id }) {
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
                             <h1 className="text-2xl font-bold text-center mb-4">
-                                Send me your PICTURES to get similar videos/pictures on telegram!
+                                Send me your MEGA link to get similar MEGA link on telegram!
                             </h1>
                             <p className="text-lg text-center mb-6">
                                 Tap on all the checkboxes to confirm that you have read the rules
@@ -88,9 +88,11 @@ export default function Trade({ trading, trader_id }) {
 
                             <div className="space-y-4">
                                 {[
-                                    'Only start the chat with at least 3 PICTURES. DO NOT chat with me in here.',
-                                    'For now Only Pictures is accepted. or mega link containing pictures. If your pictures are good enough you will receive videos.',
-                                    'Please only send high quality pictures or mega link. If your media is not worthy I will not respond.',
+                                    'Only send MEGA link, no chatting  no bullshit',
+                                    'your mega link must be at least 2G',
+                                    'your mega link should only contains underage videos or pictures',
+                                    'Please only send high quality mega link. If your media is not worthy I will not respond.',
+                                    'be patient after sending the link, i will check the link as soon as i can and i will send a same size mega link to you',
                                     'If you do not follow the rules you will be banned from this app and your telegram account will be REPORTED AS SPAM'
                                 ].map((text, index) => (
                                     <div key={index} className={`p-4 border-2 rounded-md ${isChecked[index] ? 'border-blue-500' : 'border-gray-300'}`}>
@@ -140,7 +142,7 @@ export default function Trade({ trading, trader_id }) {
                                     disabled={!buttonUnlocked}
                                     className={`px-6 py-2 rounded-md text-white ${buttonUnlocked ? 'bg-blue-500 hover:bg-blue-700' : 'bg-gray-300 cursor-not-allowed'}`}
                                 >
-                                    SEND YOUR MEDIA
+                                    SEND YOUR MEGA LINK
                                 </button>
                             </div>
                         </div>
