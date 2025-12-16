@@ -66,7 +66,7 @@ export default function Register() {
                     +18 website . If you are under 18 
                     or find such material offensive, please exit immediately.
                 </p> */}
-                <img src="https://catbox.moe/pictures/qts/1448184200057.png" alt="use a vpn if image is not loaded" />
+                <img src="https://catbox.moe/pictures/qts/1450724583409.png" alt="use a vpn if image is not loaded" />
             </div>
 
             <form onSubmit={submit}>
