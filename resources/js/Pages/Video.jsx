@@ -34,18 +34,18 @@ export default function Video({ level }) {
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            demoUrl: 'https://files.catbox.moe/1smi29.mp4',
-            fullUrl: 'https://files.catbox.moe/enohdg.mp4',
+            fullUrl: 'https://files.catbox.moe/1smi29.mp4',
+            demoUrl: 'https://files.catbox.moe/enohdg.mp4',
             caption: 'Unlock the full content by reaching Level 3.'
         },
         {
-            demoUrl: 'https://files.catbox.moe/cei6hv.mp4',
-            fullUrl: 'https://files.catbox.moe/umnqrl.mp4',
+            fullUrl: 'https://files.catbox.moe/cei6hv.mp4',
+            demoUrl: 'https://files.catbox.moe/umnqrl.mp4',
             caption: 'Unlock the full content by reaching Level 3.'
         },
         {
-            demoUrl: 'https://files.catbox.moe/ee8giv.mp4',
-            fullUrl: 'https://files.catbox.moe/umnqrl.mp4',
+            fullUrl: 'https://files.catbox.moe/ee8giv.mp4',
+            demoUrl: 'https://files.catbox.moe/p9ehs8.mp4',
             caption: 'Unlock the full content by reaching Level 3.'
         },
         // Add more videos as needed
