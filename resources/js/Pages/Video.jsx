@@ -15,7 +15,7 @@ export default function Video({ level }) {
         },
         {
             fullUrl: 'https://files.catbox.moe/psknge.mp4',
-            demoUrl: 'https://files.catbox.moe/tho9tb.mp44',
+            demoUrl: 'https://files.catbox.moe/tho9tb.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
