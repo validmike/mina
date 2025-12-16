@@ -44,13 +44,13 @@ const LightningInvoice = ({ id, amountSats, expires_at, amountDollars, address ,
             <div className="bg-gray-100">
                 {/* Top Section (Nav Bar) */}
                 <div className="flex justify-between items-center px-4 py-2 border-b">
-                    <StealthLink href={route("orders.show", { id:order_id })} >
-                        <button className="flex items-center text-gray-700 text-sm">
-                            <FaArrowLeft className="mr-2" />
-                            Go back to order
-                        </button>
-
-                    </StealthLink>
+                    <button
+                        onClick={() => window.history.back()} // Navigate to the previous page
+                        className="flex items-center text-gray-700 transition duration-150 ease-in-out"
+                    >
+                        <FaArrowLeft className="mr-2" /> {/* Back icon */}
+                        Back
+                    </button>
                     <div className="flex items-center text-gray-700 font-semibold">
                         <FaHourglassHalf className="animate-spin mr-2" />
                         {formatTime(timeLeft)}
