@@ -1,5 +1,6 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
+import { useState, useMemo, useEffect } from 'react';
 
 export default function Video({ level }) {
     const videos = [
@@ -51,6 +52,21 @@ export default function Video({ level }) {
         // Add more videos as needed
     ];
 
+    const perPage = 5;
+    const [page, setPage] = useState(1);
+
+    const totalPages = Math.ceil(videos.length / perPage);
+
+    const pageVideos = useMemo(() => {
+        const start = (page - 1) * perPage;
+        return videos.slice(start, start + perPage);
+    }, [page, videos]);
+
+    // Scroll to top on page change
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [page]);
+
     return (
         <AuthenticatedLayout
             header={
@@ -59,40 +75,83 @@ export default function Video({ level }) {
                 </h2>
             }
         >
-            <Head title="Dashboard" />
+            <Head title="Videos" />
 
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
-                            <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6" role="alert">
+                            <div
+                                className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6"
+                                role="alert"
+                            >
                                 <p className="font-bold">Notice</p>
                                 <p>Use a VPN if videos are not loading. Be patient while the videos load.</p>
                             </div>
 
-                            {videos.map((video, index) => (
-                                <div key={index} className="mb-8">
-                                    <div className="relative w-full">
-                                        <video 
-                                            controls 
-                                            controlsList="nodownload" 
-                                            disablePictureInPicture 
-                                            onContextMenu={(e) => e.preventDefault()} 
-                                            className="w-full rounded-lg"
-                                        >
-                                            <source 
-                                                src={level === 3 ? video.fullUrl : video.demoUrl} 
-                                                type="video/mp4" 
-                                            />
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
+                            {pageVideos.map((video, index) => {
+                                const resolvedSrc = level === 3 ? video.fullUrl : video.demoUrl;
 
-                                    <div className="text-center mt-4 text-lg font-semibold text-gray-800">
-                                        {video.caption}
+                                return (
+                                    // Use the video URL as key so React remounts on page change
+                                    <div key={resolvedSrc} className="mb-8">
+                                        <div className="relative w-full">
+                                            <video
+                                                // key also on the <video> just to be extra explicit
+                                                key={resolvedSrc}
+                                                controls
+                                                controlsList="nodownload"
+                                                disablePictureInPicture
+                                                onContextMenu={(e) => e.preventDefault()}
+                                                className="w-full rounded-lg"
+                                            >
+                                                <source
+                                                    src={resolvedSrc}
+                                                    type="video/mp4"
+                                                />
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        </div>
+
+                                        <div className="text-center mt-4 text-lg font-semibold text-gray-800">
+                                            {video.caption}
+                                        </div>
                                     </div>
+                                );
+                            })}
+
+                            {/* Pagination */}
+                            {totalPages > 1 && (
+                                <div className="mt-6 flex items-center justify-center space-x-4">
+                                    <button
+                                        disabled={page === 1}
+                                        onClick={() => setPage((p) => p - 1)}
+                                        className={`px-4 py-2 rounded ${
+                                            page === 1
+                                                ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                                                : 'bg-blue-500 text-white hover:bg-blue-600'
+                                        }`}
+                                    >
+                                        Previous
+                                    </button>
+
+                                    <span className="font-medium text-gray-700">
+                                        Page {page} of {totalPages}
+                                    </span>
+
+                                    <button
+                                        disabled={page === totalPages}
+                                        onClick={() => setPage((p) => p + 1)}
+                                        className={`px-4 py-2 rounded ${
+                                            page === totalPages
+                                                ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
+                                                : 'bg-blue-500 text-white hover:bg-blue-600'
+                                        }`}
+                                    >
+                                        Next
+                                    </button>
                                 </div>
-                            ))}
+                            )}
                         </div>
                     </div>
                 </div>
