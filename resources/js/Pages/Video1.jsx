@@ -1,6 +1,6 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import { useState, useMemo, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function Video({ level }) {
     const videos = [
@@ -53,19 +53,13 @@ export default function Video({ level }) {
     ];
 
     const perPage = 5;
-    const [page, setPage] = useState(1);
+    const [visibleCount, setVisibleCount] = useState(perPage);
 
-    const totalPages = Math.ceil(videos.length / perPage);
+    const visibleVideos = videos.slice(0, visibleCount);
 
-    const pageVideos = useMemo(() => {
-        const start = (page - 1) * perPage;
-        return videos.slice(start, start + perPage);
-    }, [page, videos]);
-
-    // Scroll to top on page change
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [page]);
+    const handleLoadMore = () => {
+        setVisibleCount((prev) => Math.min(prev + perPage, videos.length));
+    };
 
     return (
         <AuthenticatedLayout
@@ -81,6 +75,8 @@ export default function Video({ level }) {
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
+
+                            {/* Notice box */}
                             <div
                                 className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-6"
                                 role="alert"
@@ -89,26 +85,21 @@ export default function Video({ level }) {
                                 <p>Use a VPN if videos are not loading. Be patient while the videos load.</p>
                             </div>
 
-                            {pageVideos.map((video, index) => {
+                            {/* Videos */}
+                            {visibleVideos.map((video, index) => {
                                 const resolvedSrc = level === 3 ? video.fullUrl : video.demoUrl;
 
                                 return (
-                                    // Use the video URL as key so React remounts on page change
-                                    <div key={resolvedSrc} className="mb-8">
+                                    <div key={index} className="mb-8">
                                         <div className="relative w-full">
                                             <video
-                                                // key also on the <video> just to be extra explicit
-                                                key={resolvedSrc}
                                                 controls
                                                 controlsList="nodownload"
                                                 disablePictureInPicture
                                                 onContextMenu={(e) => e.preventDefault()}
                                                 className="w-full rounded-lg"
                                             >
-                                                <source
-                                                    src={resolvedSrc}
-                                                    type="video/mp4"
-                                                />
+                                                <source src={resolvedSrc} type="video/mp4" />
                                                 Your browser does not support the video tag.
                                             </video>
                                         </div>
@@ -120,36 +111,22 @@ export default function Video({ level }) {
                                 );
                             })}
 
-                            {/* Pagination */}
-                            {totalPages > 1 && (
-                                <div className="mt-6 flex items-center justify-center space-x-4">
+                            {/* Load more button */}
+                            {visibleCount < videos.length && (
+                                <div className="mt-6 flex justify-center">
                                     <button
-                                        disabled={page === 1}
-                                        onClick={() => setPage((p) => p - 1)}
-                                        className={`px-4 py-2 rounded ${
-                                            page === 1
-                                                ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                                                : 'bg-blue-500 text-white hover:bg-blue-600'
-                                        }`}
+                                        onClick={handleLoadMore}
+                                        className="px-6 py-2 rounded bg-blue-500 text-white font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-1"
                                     >
-                                        Previous
+                                        Load more videos
                                     </button>
+                                </div>
+                            )}
 
-                                    <span className="font-medium text-gray-700">
-                                        Page {page} of {totalPages}
-                                    </span>
-
-                                    <button
-                                        disabled={page === totalPages}
-                                        onClick={() => setPage((p) => p + 1)}
-                                        className={`px-4 py-2 rounded ${
-                                            page === totalPages
-                                                ? 'bg-gray-200 text-gray-500 cursor-not-allowed'
-                                                : 'bg-blue-500 text-white hover:bg-blue-600'
-                                        }`}
-                                    >
-                                        Next
-                                    </button>
+                            {/* Optional: small hint when all videos are shown */}
+                            {visibleCount >= videos.length && videos.length > 0 && (
+                                <div className="mt-4 text-center text-sm text-gray-500">
+                                    You’ve reached the end.
                                 </div>
                             )}
                         </div>
