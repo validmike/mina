@@ -23,7 +23,7 @@ export default function AztecoPage() {
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="bg-white shadow-sm sm:rounded-lg p-6 text-gray-900">
                         <p className="mb-4">
-                            There are 3 crypto gift cards supported at the
+                            There are 2 crypto gift cards supported at the
                             moment. You can buy them with various payment
                             methods:
                         </p>
@@ -39,11 +39,11 @@ export default function AztecoPage() {
                                     Azteco Lightning Bitcoin Voucher
                                 </a>
                             </li>
-                            <li>
+                            {/* <li>
                                 <p className="text-blue-600 hover:underline">
                                     giftmecrypto.io
                                 </p>
-                            </li>
+                            </li> */}
                             <li>
                                 <a
                                     href="https://www.g2a.com/rewarble-super-gift-card-10-eur-by-rewarble-key-global-i10000506957002"
@@ -71,13 +71,13 @@ export default function AztecoPage() {
                                         has lower fees for both of us and
                                         processes instantly.
                                     </p>
-                                    <p className="text-sm text-yellow-700 mt-1">
+                                    {/* <p className="text-sm text-yellow-700 mt-1">
                                         <span className="font-semibold">
                                             Alternative:
                                         </span>{" "}
                                         If you can't buy Azteco, buy a Crypto
                                         Giftcard instead.
-                                    </p>
+                                    </p> */}
                                     <p className="text-sm text-yellow-700 mt-1">
                                         <span className="font-semibold">
                                             Rewarble Gift Card:
@@ -100,7 +100,7 @@ export default function AztecoPage() {
                             >
                                 Azteco
                             </button>
-                            <button
+                            {/* <button
                                 className={`px-4 py-2 ${
                                     activeTab === "giftmecrypto"
                                         ? "border-b-2 border-blue-600 font-semibold"
@@ -109,7 +109,7 @@ export default function AztecoPage() {
                                 onClick={() => setActiveTab("giftmecrypto")}
                             >
                                 Gift Me Crypto
-                            </button>
+                            </button> */}
                             <button
                                 className={`px-4 py-2 ${
                                     activeTab === "rewarble"
