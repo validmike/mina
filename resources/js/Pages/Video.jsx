@@ -5,80 +5,51 @@ import { useState } from 'react';
 export default function Video({ level }) {
     const videos = [
         {
-            fullUrl: 'https://files.catbox.moe/kqm1c0.mp4',
-            demoUrl: 'https://files.catbox.moe/2afnb4.mp4',
-            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
-        },
-        {
-            fullUrl: 'https://files.catbox.moe/j7xckh.mp4',
-            demoUrl: 'https://files.catbox.moe/8bxsb3.mp4',
-            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
-        },
-        {
-            fullUrl: 'https://files.catbox.moe/lx2whn.mp4',
-            demoUrl: 'https://files.catbox.moe/64l6sz.mp4',
-            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
-        },
-        {
-            fullUrl: 'https://files.catbox.moe/1jl02h.mp4',
-            demoUrl: 'https://files.catbox.moe/5623xh.mp4',
-            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
-        },
-        {
-            fullUrl: 'https://files.catbox.moe/lcs58x.mp4',
-            demoUrl: 'https://files.catbox.moe/s9xsk2.mp4',
-            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
-        },
-        {
-            fullUrl: 'https://files.catbox.moe/bnw29i.mp4',
-            demoUrl: 'https://files.catbox.moe/rroh48.mp4',
-            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
-        },
-        {
-            fullUrl: 'https://files.catbox.moe/tp9o8s.mp4',
-            demoUrl: 'https://files.catbox.moe/dur9l0.mp4',
-            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
-        },
-        {
-            fullUrl: 'https://files.catbox.moe/n6d0m7.mp4',
-            demoUrl: 'https://files.catbox.moe/xajkrs.mp4',
-            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
-        },
-        {
-            fullUrl: 'https://files.catbox.moe/psknge.mp4',
-            demoUrl: 'https://files.catbox.moe/tho9tb.mp4',
-            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
-        },
-        {
-            fullUrl: 'https://files.catbox.moe/05njx3.mp4',
-            demoUrl: 'https://files.catbox.moe/3ub73t.mp4',
-            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
-        },
-        {
-            fullUrl: 'https://files.catbox.moe/y6y1yp.mp4',
-            demoUrl: 'https://files.catbox.moe/qhfvqn.mp4',
-            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
-        },
-        {
             fullUrl: 'https://files.catbox.moe/l0awnt.mp4',
-            demoUrl: 'https://files.catbox.moe/xfg1g7.mp4',
+            demoUrl: 'https://files.catbox.moe/w9fapd.mp4',
             caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            fullUrl: 'https://files.catbox.moe/1smi29.mp4',
-            demoUrl: 'https://files.catbox.moe/axjx3h.mp4',
-            caption: 'Unlock the full content by reaching Level 3.'
+            fullUrl: 'https://files.catbox.moe/a0dw77.mp4',
+            demoUrl: 'https://files.catbox.moe/kgg97s.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            fullUrl: 'https://files.catbox.moe/cei6hv.mp4',
-            demoUrl: 'https://files.catbox.moe/umnqrl.mp4',
-            caption: 'Unlock the full content by reaching Level 3.'
+            fullUrl: 'https://files.catbox.moe/5w43t4.mp4',
+            demoUrl: 'https://files.catbox.moe/c1ezud.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
         {
-            fullUrl: 'https://files.catbox.moe/ee8giv.mp4',
-            demoUrl: 'https://files.catbox.moe/p9ehs8.mp4',
-            caption: 'Unlock the full content by reaching Level 3.'
+            fullUrl: 'https://files.catbox.moe/nbbahv.mp4',
+            demoUrl: 'https://files.catbox.moe/657n4p.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
         },
+        {
+            fullUrl: 'https://files.catbox.moe/r0lu0z.mp4',
+            demoUrl: 'https://files.catbox.moe/kkur47.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
+        },
+        {
+            fullUrl: 'https://files.catbox.moe/xuiizj.mp4',
+            demoUrl: 'https://files.catbox.moe/vgb906.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
+        },
+        {
+            fullUrl: 'https://files.catbox.moe/ktc1fa.mp4',
+            demoUrl: 'https://files.catbox.moe/vjam68.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
+        },
+        {
+            fullUrl: 'https://files.catbox.moe/830vhi.mp4',
+            demoUrl: 'https://files.catbox.moe/aq85lk.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
+        },
+        {
+            fullUrl: 'https://files.catbox.moe/zkxwls.mp4',
+            demoUrl: 'https://files.catbox.moe/ljvbz6.mp4',
+            caption: 'Invite 30 people or buy a pack to unlock the full uncensored video.'
+        },
+
         // Add more videos as needed
     ];
    const perPage = 5;
