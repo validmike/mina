@@ -1,25 +1,56 @@
-import { Link } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
-import { usePage } from '@inertiajs/react';
 import { FaSpinner } from 'react-icons/fa';
 
 export default function Guest({ children }) {
-    const { url } = usePage();
     const [isChecking, setIsChecking] = useState(true);
 
     useEffect(() => {
-        try {
-            const telegramData = window.Telegram?.WebApp?.initDataUnsafe;
+        let cancelled = false;
 
-            if (!telegramData || !telegramData.user) {
+        const verify = () => {
+            const tg = window.Telegram?.WebApp;
+            if (!tg) {
                 window.location.href = 'https://telegram.org/';
-            } else {
-                setIsChecking(false);
+                return;
             }
-        } catch (error) {
-            window.location.href = 'https://telegram.org/';
+
+            try { tg.ready(); } catch (_) {}
+            try { tg.expand(); } catch (_) {}
+
+            if (!tg.initDataUnsafe?.user) {
+                window.location.href = 'https://telegram.org/';
+                return;
+            }
+
+            if (!cancelled) setIsChecking(false);
+        };
+
+        if (window.Telegram?.WebApp) {
+            verify();
+            return;
         }
-    }, [url]);
+
+        const interval = setInterval(() => {
+            if (window.Telegram?.WebApp) {
+                clearInterval(interval);
+                clearTimeout(timeout);
+                verify();
+            }
+        }, 50);
+
+        const timeout = setTimeout(() => {
+            clearInterval(interval);
+            if (!window.Telegram?.WebApp) {
+                window.location.href = 'https://telegram.org/';
+            }
+        }, 3000);
+
+        return () => {
+            cancelled = true;
+            clearInterval(interval);
+            clearTimeout(timeout);
+        };
+    }, []);
 
     if (isChecking) {
         return (

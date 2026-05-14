@@ -11,11 +11,11 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
+        <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
         @routes
         @viteReactRefresh
         @vite(['resources/js/app.jsx', "resources/js/Pages/{$page['component']}.jsx"])
         @inertiaHead
-        <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5YT7JGSBN"></script>
         <script>
