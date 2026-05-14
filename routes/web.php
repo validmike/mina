@@ -82,6 +82,11 @@ Route::middleware(['auth', 'banned'])->group(function () {
 });
 
 Route::get('/stat', [HelpController::class, 'stat'])->name('stat');
+
+Route::get('/testlogin', function () {
+    return view('testlogin');
+});
+
 Route::get('/dev-login', function () {
     $user = User::find(1); // Replace with a valid user ID
     Auth::login($user);
